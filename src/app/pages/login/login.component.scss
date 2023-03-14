@@ -1,4 +1,4 @@
-@import 'src/styles/styles.scss';
+@import '../../../styles/styles.scss';
 
 .container{
     min-height: calc(100vh - 60px);
@@ -30,8 +30,10 @@
             height: 40px;
             padding: 10px;
             border-radius: 15px;
-            font-size: 25px;
-            font-weight: $fw-bold;
+            font-family: $ff-title;
+            font-size: 2rem;
+            font-weight: $fw-medium;
+            text-align: center;
         }
         input {
             border: 1px solid $yellow;
