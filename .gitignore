@@ -5,6 +5,10 @@
 /tmp
 /out-tsc
 /bazel-out
+*.css
+*.min.*
+*.css.*
+
 
 # Node
 /node_modules
