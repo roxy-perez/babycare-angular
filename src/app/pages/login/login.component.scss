@@ -1,7 +1,7 @@
 @import '../../../styles/styles.scss';
 
 .container{
-    min-height: calc(100vh - 60px);
+    min-height: $content-height;
     display: flex;
     flex-direction: column;
     padding: 40px;
