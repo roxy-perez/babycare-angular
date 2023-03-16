@@ -19,7 +19,7 @@ export class AppComponent {
           case '/home':
             this.backgroundColor = '#808BF5';
             break;
-          case '/food':
+          case '/feeding':
             this.backgroundColor = '#ABEBAF';
             break;
           case '/poo':
