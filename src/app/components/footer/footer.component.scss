@@ -14,12 +14,20 @@
         height: 50px;
         line-height: 50px;
         background-color: $red;
-        color: #fff;
+        color: $white;
         font-size: 25px;
         text-align: center;
         border-radius: 20px;
         :hover {
             cursor: pointer;
         }
+    }
+    .active {
+        background-color: $white;
+        color: $red;
+        border: 2px solid $red;
+        width: 46px;
+        height: 46px;
+        line-height: 46px;
     }
 }
