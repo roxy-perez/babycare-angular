@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="baby-data"><p>Hola, bebé <span class="baby-name">{{ name | uppercase }}!</span></p><p>{{ age }}</p></div>
+  <div class="menu">
+    <div routerLink="/food">
+      <p>
+        <fa-icon [icon]="faPersonBreastfeeding"></fa-icon>
+      </p>
+      <p>ALIMENTACIÓN</p>
+      <p>Hace 1h 7min</p>
+    </div>
+    <div routerLink="/poo">
+      <p>
+        <fa-icon [icon]="faPoo"></fa-icon>
+      </p>
+      <p>DEPOSICIONES</p>
+      <p>Hace 2min</p>
+    </div>
+    <div routerLink="/vaccines">
+      <p>
+        <fa-icon [icon]="faSyringe"></fa-icon>
+      </p>
+      <p>VACUNAS</p>
+      <p>5 vacunas</p>
+    </div>
+    <div routerLink="/appointments">
+      <p>
+        <fa-icon [icon]="faCalendarDays"></fa-icon>
+      </p>
+      <p>CITAS</p>
+      <p>2 citas pendientes</p>
+    </div>
+  </div>
+</div>
