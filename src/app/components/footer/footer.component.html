@@ -1,5 +1,5 @@
-<div class="container">
-  <div routerLink="/food" routerLinkActive="active" class="btn">
+<div class="container" *ngIf="show()">
+  <div routerLink="/feeding" routerLinkActive="active" class="btn">
     <fa-icon [icon]="faPersonBreastfeeding"></fa-icon>
   </div>
   <div routerLink="/poo" routerLinkActive="active" class="btn"><fa-icon [icon]="faPoo"></fa-icon></div>
