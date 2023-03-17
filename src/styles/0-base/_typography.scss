@@ -1,17 +1,19 @@
-@import url('https://fonts.cdnfonts.com/css/barbar');
-
 $font-path: "../../assets/font" !default;
 
-$ff-title: 'Barbar', sans-serif;
-$ff-subtitle: 'Josefin Sans', sans-serif;
+$ff-title: 'Barbar',
+sans-serif;
+$ff-subtitle: 'Josefin Sans',
+sans-serif;
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
-@font-face{
+@font-face {
   src: url('#{$font-path}/JosefinSans-Regular.ttf');
-   font-family: $ff-subtitle;
+  font-family: $ff-subtitle;
 }
 
-
-
+@font-face {
+  src: url('#{$font-path}/BARBAR.otf');
+  font-family: $ff-title;
+}
