@@ -1,0 +1,33 @@
+<form class="container" #form="ngForm" (ngSubmit)="create(form)" ngNativeValidate>
+    <p class="logo">
+      <fa-icon [icon]="faPoo"></fa-icon>
+    </p>
+    <h2><span>C</span>OLOR</h2>
+    <div class="poo-color">
+      <input type="radio" name="color" id="black" value="black" [(ngModel)]="color" />
+      <input type="radio" name="color" id="brown" value="brown" [(ngModel)]="color"  />
+      <input type="radio" name="color" id="yellow" value="yellow" [(ngModel)]="color" />
+      <input type="radio" name="color" id="green" value="green" [(ngModel)]="color" />
+    </div>
+    <h2><span>C</span>ONSISTENCIA</h2>
+    <div class="poo-option">
+      <div>
+        <input type="radio" name="consistency" id="soft" value="soft" [(ngModel)]="consistency" />
+        <label for="soft">Blanda</label>
+      </div>
+      <div>
+        <input type="radio" name="consistency" id="hard" value="hard" [(ngModel)]="consistency" />
+        <label for="hard">Dura</label>
+      </div>
+      <div>
+        <input type="radio" name="consistency" id="normal" value="normal" [(ngModel)]="consistency" />
+        <label for="normal">Normal</label>
+      </div>
+      <div>
+        <input type="radio" name="consistency" id="diarrhea" value="diarrhea" [(ngModel)]="consistency" />
+        <label for="diarrhea">Diarrea</label>
+      </div>
+    </div>
+    <button class="form-btn">GUARDAR</button>
+</form>
+  

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,10 +13,26 @@ import { HomeComponent } from './pages/home/home.component';
 import { PooComponent } from './pages/poo/poo.component';
 import { FeedingComponent } from './pages/feeding/feeding.component';
 import { VaccinateComponent } from './pages/vaccinate/vaccinate.component';
+import { CreatePooComponent } from './pages/create-poo/create-poo.component';
+import { DateFormatPipe } from './pipes/date-format.pipe';
+import { TranslatePipe } from './pipes/translate.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, RegisterComponent, HomeComponent, PooComponent, FeedingComponent, VaccinateComponent],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    PooComponent,
+    FeedingComponent,
+    VaccinateComponent,
+    CreatePooComponent,
+    DateFormatPipe,
+    TranslatePipe,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
