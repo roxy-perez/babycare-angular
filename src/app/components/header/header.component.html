@@ -1,11 +1,13 @@
 <header class="header" *ngIf="show()">
   <div routerLink="/register" class="icon-div">
-      <fa-icon [icon]="faGear" size="2x"></fa-icon>
+    <fa-icon [icon]="faGear" size="2x"></fa-icon>
   </div>
   <div class="avatar">
     <img src="../../../assets/img/baby.jpg" alt="">
   </div>
   <div>
-    <button class="btn">Guardar</button>
+    <button [ngClass]="allowNavigation ? 'btn' : 'btn-hidden'" (click)="navigate()">   
+      <fa-icon  [icon]="faPlus" size="2x"></fa-icon>
+    </button>
   </div>
 </header>

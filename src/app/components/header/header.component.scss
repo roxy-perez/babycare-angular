@@ -3,7 +3,8 @@
 .header {
   height: 60px;
   width: 95%;
-  position: sticky;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,8 +27,11 @@
     border: 6px solid $red;
     border-radius: 10px;
     color: $white;
-    margin-right: 2em;
-
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
       cursor: pointer;
       color: $blue;
@@ -42,11 +46,17 @@
     font-size: large;
     line-height: 1em;
     color: $blue;
-
     &:hover {
       cursor: pointer;
       color: $red;
     }
   }
 
+  .btn-hidden {
+    background: none;
+    border: none;
+    color: transparent;
+    font-weight: $fw-medium;
+    font-size: large;
+  }
 }
