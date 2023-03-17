@@ -27,11 +27,6 @@
     border-radius: 10px;
     color: $white;
     margin-right: 2em;
-
-    &:hover {
-      cursor: pointer;
-      color: $blue;
-    }
   }
 
   .btn {
@@ -42,11 +37,6 @@
     font-size: large;
     line-height: 1em;
     color: $blue;
-
-    &:hover {
-      cursor: pointer;
-      color: $red;
-    }
   }
 
 }

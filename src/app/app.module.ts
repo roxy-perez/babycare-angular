@@ -11,9 +11,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PooComponent } from './pages/poo/poo.component';
 import { FeedingComponent } from './pages/feeding/feeding.component';
+import { VaccinateComponent } from './pages/vaccinate/vaccinate.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, RegisterComponent, HomeComponent, PooComponent, FeedingComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, RegisterComponent, HomeComponent, PooComponent, FeedingComponent, VaccinateComponent],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent],
