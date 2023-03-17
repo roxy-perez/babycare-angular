@@ -5,6 +5,7 @@ import { FeedingComponent } from './pages/feeding/feeding.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PooComponent } from './pages/poo/poo.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { VaccinateComponent } from './pages/vaccinate/vaccinate.component';
 import { CreatePooComponent } from './pages/create-poo/create-poo.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'poo', component: PooComponent },
   { path: 'feeding', component: FeedingComponent },
+  { path: 'vaccinate', component: VaccinateComponent },
   { path: 'poo/create', component: CreatePooComponent },
 ];
 

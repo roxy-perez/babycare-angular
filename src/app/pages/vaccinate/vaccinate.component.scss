@@ -1,0 +1,59 @@
+@import '../../../styles/styles.scss';
+
+.container {
+  @include router-content;
+  @include center-flex-container(column);
+
+  .title {
+    flex-basis: 100%;
+    font-family: $ff-title;
+    font-size: 2.1rem;
+    font-weight: $fw-medium;
+    color: $red;
+    line-height: 1.6;
+    margin: 1em;
+
+    span {
+      @include span-letter;
+    }
+
+  }
+
+  .vaccinate {
+    width: 75vw;
+    @include center-flex-container(column);
+    justify-content: center;
+    background-color: $red;
+    color: $white;
+    border: 1px solid $white;
+    border-radius: 15px;
+    padding: 2em;
+    font-family: $ff-subtitle;
+    font-size: 1.2rem;
+    font-weight: $fw-medium;
+
+
+    .select-css {
+      background-image: url('../../../assets/img/arrow-down.svg');
+      background-repeat: no-repeat, repeat;
+      background-position: right .1em top 50%, 4em 1em;
+      background-size: .80em auto, 100%;
+      background-color: $yellow;
+      border: 1px solid $blue;
+      border-radius: 10px;
+      width: 60%;
+      margin: .6em auto;
+
+      font-family: $ff-subtitle;
+      font-size: 1.2rem;
+      font-weight: $fw-medium;
+      color: $white;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+
+  }
+
+
+}

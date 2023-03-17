@@ -32,24 +32,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    &:hover {
-      cursor: pointer;
-      color: $blue;
-    }
   }
 
   .btn {
     background: none;
     border: none;
-    font-family: $ff-subtitle;
-    font-weight: $fw-medium;
-    font-size: large;
+    font-family: $ff-title;
+    font-weight: $fw-bold;
     line-height: 1em;
     color: $blue;
-    &:hover {
-      cursor: pointer;
-      color: $red;
-    }
   }
 
   .btn-hidden {

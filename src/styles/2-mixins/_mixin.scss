@@ -24,7 +24,7 @@
   -webkit-transform: rotate(-10deg);
 }
 
-@mixin btn-no-shadow($background-color, $text-color, $border-color){
+@mixin btn-no-shadow($background-color, $text-color, $border-color) {
   height: 2em;
   width: 6em;
   border: 4px solid $border-color;
@@ -44,6 +44,12 @@
 @mixin red-shadow {
   -webkit-box-shadow: inset 1px 3px 8px 5px #EF3349, 2px 5px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, 0.1);
   box-shadow: inset 1px 3px 8px 5px #EF3349, 2px 5px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, 0.1);
+}
+
+@mixin center-flex-container($direction) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @mixin router-content {

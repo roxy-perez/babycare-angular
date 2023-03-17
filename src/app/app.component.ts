@@ -26,7 +26,7 @@ export class AppComponent {
           case '/poo/create':
             this.backgroundColor = '#F9DC76';
             break;
-          case '/vaccines':
+          case '/vaccinate':
             this.backgroundColor = '#E98B96';
             break;
           case '/appointments':
