@@ -45,3 +45,9 @@
   -webkit-box-shadow: inset 1px 3px 8px 5px #EF3349, 2px 5px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, 0.1);
   box-shadow: inset 1px 3px 8px 5px #EF3349, 2px 5px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, 0.1);
 }
+
+@mixin router-content {
+  min-height: calc(100vh - 120px);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}

@@ -1,23 +1,42 @@
 import { Component } from '@angular/core';
-import { Router } from "@angular/router";
-import {
-  faGear,
-} from '@fortawesome/free-solid-svg-icons';
+import { NavigationEnd, Router } from '@angular/router';
+import { faGear, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   faGear = faGear;
+  faPlus = faPlus;
+  allowNavigation = false;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        switch (this.router.url) {
+          case '/poo':
+          case '/feeding':
+            this.allowNavigation = true;
+            break;
+          default:
+            this.allowNavigation = false;
+        }
+      }
+    });
+  }
 
   show(): boolean {
     if (this.router.url !== '/register' && this.router.url !== '/login') {
       return true;
     }
     return false;
+  }
+
+  navigate(): void {
+    if (this.allowNavigation) {
+      this.router.navigateByUrl(`${this.router.url}/create`);
+    }
   }
 }
