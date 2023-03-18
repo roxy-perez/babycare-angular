@@ -18,7 +18,7 @@ export class RegisterComponent {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: "#F22E52",
-      confirmButtonText: 'Sí, ya he guardado!',
+      confirmButtonText: '¡Por supuesto que sí!',
       cancelButtonColor: "#59D961",
       cancelButtonText: 'No, ahora guardaré'
     }).then((answer) => {
