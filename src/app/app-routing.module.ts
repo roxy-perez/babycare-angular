@@ -8,6 +8,7 @@ import { PooComponent } from './pages/poo/poo.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { VaccinateComponent } from './pages/vaccinate/vaccinate.component';
 import { CreatePooComponent } from './pages/create-poo/create-poo.component';
+import { CreateFeedingComponent } from './pages/create-feeding/create-feeding.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'feeding', component: FeedingComponent },
   { path: 'vaccinate', component: VaccinateComponent },
   { path: 'poo/create', component: CreatePooComponent },
+  { path: 'feeding/create', component: CreateFeedingComponent },
 ];
 
 @NgModule({

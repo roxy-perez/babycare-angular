@@ -9,11 +9,11 @@ $fw-medium: 500;
 $fw-bold: 700;
 
 @font-face {
-  src: url('#{$font-path}/JosefinSans-Regular.ttf');
-  font-family: $ff-subtitle;
+  src: url('../../assets/font/JosefinSans-Regular.ttf');
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 @font-face {
-  src: url('#{$font-path}/BARBAR.otf');
-  font-family: $ff-title;
+  src: url('../../assets/font/BARBAR.otf');
+  font-family: 'BARBAR';
 }

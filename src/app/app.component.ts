@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Baby-Care';
   backgroundColor = '#FFF';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -20,6 +20,7 @@ export class AppComponent {
             this.backgroundColor = '#808BF5';
             break;
           case '/feeding':
+          case '/feeding/create':
             this.backgroundColor = '#ABEBAF';
             break;
           case '/poo':
