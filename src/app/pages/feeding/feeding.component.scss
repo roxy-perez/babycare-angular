@@ -31,7 +31,7 @@
       height: 60px;
       border-radius: 50%;
       box-shadow: 2px 2px 8px rgba(89, 255, 0, 0.3);
-      @include center-flex-container(row);
+      @include flex-center-container(row);
       justify-content: space-around;
       overflow: hidden;
       background-color: transparent;
@@ -43,11 +43,6 @@
 
       .faPause {
         color: $yellow;
-      }
-
-      &:hover {
-        cursor: pointer;
-        box-shadow: 2px 2px 8px rgba(255, 68, 0, 0.3);
       }
     }
 

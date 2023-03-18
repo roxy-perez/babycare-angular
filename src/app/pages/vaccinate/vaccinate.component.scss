@@ -2,7 +2,7 @@
 
 .container {
   @include router-content;
-  @include center-flex-container(column);
+  @include flex-center-container(column);
 
   .title {
     flex-basis: 100%;
@@ -21,7 +21,7 @@
 
   .vaccinate {
     width: 75vw;
-    @include center-flex-container(column);
+    @include flex-center-container(column);
     justify-content: center;
     background-color: $red;
     color: $white;

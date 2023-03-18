@@ -30,4 +30,21 @@
         height: 46px;
         line-height: 46px;
     }
+
+    .btn {
+      background: none;
+      border: none;
+      font-family: $ff-title;
+      font-weight: $fw-bold;
+      line-height: 1em;
+      color: $blue;
+    }
+
+    .btn-hidden {
+      background: none;
+      border: none;
+      color: transparent;
+      font-weight: $fw-medium;
+      font-size: large;
+    }
 }
