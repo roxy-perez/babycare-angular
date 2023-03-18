@@ -28,7 +28,7 @@ export class HeaderComponent {
   }
 
   show(): boolean {
-    if (this.router.url !== '/register' && this.router.url !== '/login') {
+    if (this.router.url !== '/register' && this.router.url !== '/login' && this.router.url !== '/front') {
       return true;
     }
     return false;

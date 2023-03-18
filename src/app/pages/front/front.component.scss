@@ -1,0 +1,67 @@
+@import '../../../styles/styles.scss';
+
+.container {
+  @include flex-center-container(column);
+  justify-content: center;
+  background-color: rgba(48, 168, 242, .5);
+  height: 100vh;
+  padding: 0.5em 0.8em;
+  overflow: hidden;
+  position: fixed;
+
+  .image {
+    height: 320px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .cta-buttons {
+    @include flex-center-container(column);
+    gap: 15px;
+
+    button {
+
+      &.signup-btn {
+        @include btn-no-shadow($green, $white, rgba(89, 255, 0, 0.3));
+        @include green-shadow;
+      }
+
+      &.signin-btn {
+        @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
+        @include blue-shadow;
+      }
+    }
+  }
+}
+
+main {
+  margin: 0 auto;
+
+  h1 {
+    font-size: 6rem;
+    font-family: $ff-title;
+    font-weight: $fw-bold;
+    text-align: center;
+    line-height: 1.6em;
+    color: $yellow;
+    margin-top: -0.7em;
+    margin-bottom: 0.2em;
+    @include text-white-shadow;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: $ff-subtitle;
+    font-weight: $fw-medium;
+    text-align: center;
+    color: $white;
+    padding: .2em;
+
+    span {
+      font-family: $ff-title;
+      font-weight: $fw-medium;
+      @include span-letter;
+    }
+  }
+}

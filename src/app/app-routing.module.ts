@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FrontComponent } from './pages/front/front.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FeedingComponent } from './pages/feeding/feeding.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -10,6 +11,7 @@ import { CreatePooComponent } from './pages/create-poo/create-poo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'front', component: FrontComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
