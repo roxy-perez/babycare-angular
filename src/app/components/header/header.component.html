@@ -3,11 +3,12 @@
     <fa-icon [icon]="faGear" size="2x"></fa-icon>
   </div>
   <div class="avatar">
-    <img src="../../../assets/img/baby.jpg" alt="">
+    <img src="../../../assets/img/baby.jpg" alt="" />
   </div>
-  <div>
-    <button [ngClass]="allowNavigation ? 'btn' : 'btn-hidden'" (click)="navigate()">
-      <fa-icon  [icon]="faPlus" size="2x"></fa-icon>
-    </button>
+  <div
+    [ngClass]="allowNavigation ? 'icon-div' : 'icon-div-hidden'"
+    (click)="navigate()"
+  >
+    <fa-icon [icon]="faPlus" size="2x"></fa-icon>
   </div>
 </header>

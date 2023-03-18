@@ -34,20 +34,12 @@
     justify-content: center;
   }
 
-  .btn {
-    background: none;
-    border: none;
-    font-family: $ff-title;
-    font-weight: $fw-bold;
-    line-height: 1em;
-    color: $red;
-  }
-
-  .btn-hidden {
-    background: none;
-    border: none;
+  .icon-div-hidden {
+    background: transparent;
+    border: 6px solid transparent;
+    border-radius: 10px;    
     color: transparent;
-    font-weight: $fw-medium;
-    font-size: large;
+    width: 35px;
+    height: 35px;
   }
 }
