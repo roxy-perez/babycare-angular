@@ -1,40 +1,19 @@
 <main class="container">
-  <div class="grid-container">
-    <div class="grid-item">
-      <div>Izquierda</div>
-      <div><fa-icon [icon]="faBreastfeeding" size="2x" class="faBreastfeeding"></fa-icon></div>
-      <div>Derecha</div>
+  <p><span>A</span> limentación</p>
+  <div class="feeding" *ngFor="let feeding of feedings">
+    <fa-icon [icon]="faBreastfeeding" size="2x" class="faBreastfeeding"
+      nIf="feeding.leftBreast || feeding.rightBreast"></fa-icon>
+    <div>{{ feeding.leftBreast }}</div>
+    <div>{{ feeding.rightBreast }}</div>
+    <div>{{ feeding.total }}</div>
+    <div>
+      <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" nIf="feeding.bottle">
+      {{ feeding.bottle }} ml
     </div>
-    <div class="grid-item">
-      <button class="btn"><fa-icon class="faPlay" [icon]="faPlay" size="2x"></fa-icon></button>
-      <button class="btn"><fa-icon class="faPause" [icon]="faPause" size="2x"></fa-icon></button>
+    <div>
+      <fa-icon [icon]="faFood" size="2x" class="faFood" nIf="feeding.solid"></fa-icon>
+      {{ feeding.solid }} g.
     </div>
-    <div class="grid-item">
-      <h4>00:32</h4>
-      <h4>00:40</h4>
-    </div>
-    <div class="grid-item total">
-      <h3 class="time">Total</h3>
-    </div>
-    <div class="grid-item">
-      <button class="stop"><fa-icon [icon]="faStop" class="faStop" size="2x"></fa-icon></button>
-      <h3>01:12 mins</h3>
-      <button class="reset"><fa-icon [icon]="faArrowRotateBackward" class="faArrow" size="2x"></fa-icon></button>
-    </div>
-  </div>
-  <div class="bottle">
-    <fa-icon class="faCow" [icon]="faCow" size="2x"></fa-icon>
-    <h3>2.5ml</h3>
-    <p class="datetime">10:15 <span id="datetime"></span></p>
-    <div class="resume">
-      <p>2.2ml hace 2h 25min</p>
-    </div>
-  </div>
-  <div class="solids"><fa-icon [icon]="faFood" size="2x"></fa-icon>
-    <h3>200mgl</h3>
-    <p class="datetime">10:15 <span id="datetime"></span></p>
-    <div class="resume">
-      <p>200mg hace 4h 5min</p>
-    </div>
+    <div>{{ feeding.date | dateFormat }}</div>
   </div>
 </main>
