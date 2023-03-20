@@ -20,7 +20,6 @@ h2 {
     font-size: 2rem;
     font-weight: $fw-medium;
     color: $red;
-    margin-bottom: -5px;
     span {
       @include span-letter;
     }

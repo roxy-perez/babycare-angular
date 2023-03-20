@@ -1,4 +1,4 @@
-@import 'src/styles/styles.scss';
+@import '../../../styles/styles.scss';
 .container {
     @include router-content;
     font-family: $ff-subtitle;
@@ -40,7 +40,7 @@
         }
         p:nth-child(2) {
             font-family: $ff-title;
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-bottom: 0;
             margin-top: -20px;
         }

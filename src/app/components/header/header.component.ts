@@ -18,6 +18,7 @@ export class HeaderComponent {
         switch (this.router.url) {
           case '/poo':
           case '/feeding':
+          case '/appointments':
             this.allowNavigation = true;
             break;
           default:
@@ -28,7 +29,11 @@ export class HeaderComponent {
   }
 
   show(): boolean {
-    if (this.router.url !== '/register' && this.router.url !== '/login' && this.router.url !== '/front') {
+    if (
+      this.router.url !== '/register' &&
+      this.router.url !== '/login' &&
+      this.router.url !== '/front'
+    ) {
       return true;
     }
     return false;

@@ -1,0 +1,22 @@
+<form
+  class="container"
+  #form="ngForm"
+  (ngSubmit)="create(form)"
+  ngNativeValidate
+>
+  <input
+    type="text"
+    name="title"
+    placeholder="Título"
+    [(ngModel)]="title"
+    required
+  />
+  <textarea
+    name="details"
+    placeholder="Detalles"
+    [(ngModel)]="details"
+  ></textarea>
+  <input type="date" name="date" [(ngModel)]="date" required />
+  <input type="time" name="time" [(ngModel)]="time" required />
+  <button class="form-btn">GUARDAR</button>
+</form>
