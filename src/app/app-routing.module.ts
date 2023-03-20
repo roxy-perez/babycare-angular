@@ -9,6 +9,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { VaccinateComponent } from './pages/vaccinate/vaccinate.component';
 import { CreatePooComponent } from './pages/create-poo/create-poo.component';
 import { CreateFeedingComponent } from './pages/create-feeding/create-feeding.component';
+import { AppointmentsComponent } from './pages/appointments/appointments.component';
+import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'vaccinate', component: VaccinateComponent },
   { path: 'poo/create', component: CreatePooComponent },
   { path: 'feeding/create', component: CreateFeedingComponent },
+  { path: 'appointments', component: AppointmentsComponent },
+  { path: 'appointments/create', component: CreateAppointmentsComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,42 @@
+@import '../../../styles/styles.scss';
+.container {
+    @include router-content;
+    font-family: $ff-subtitle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 150px;
+
+    h2 {
+        font-family: $ff-title;
+        font-size: 2rem;
+        font-weight: $fw-medium;
+        color: $red;
+        margin-bottom: -5px;
+        span {
+          @include span-letter;
+        }
+    }
+
+    input,
+    textarea {
+      height: 40px;
+      width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: $fw-medium;
+      padding-left: 10px;
+      border: none;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    .form-btn {
+        margin-top: 30px;
+        @include btn-no-shadow($red, $white, $red);
+    }
+}

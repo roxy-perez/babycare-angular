@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,10 @@ import { CreatePooComponent } from './pages/create-poo/create-poo.component';
 import { CreateFeedingComponent } from './pages/create-feeding/create-feeding.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { TranslatePipe } from './pipes/translate.pipe';
+import { AppointmentsComponent } from './pages/appointments/appointments.component';
+import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
+
+registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [
@@ -35,9 +42,11 @@ import { TranslatePipe } from './pipes/translate.pipe';
     DateFormatPipe,
     TranslatePipe,
     CreateFeedingComponent,
+    AppointmentsComponent,
+    CreateAppointmentsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="appointment" *ngFor="let appointment of appointments">
+    <div class="date">{{ appointment.date | date : "dd MMM" }}</div>
+    <div class="time">{{ appointment.date | date : "HH:mm" }}</div>
+    <div class="info">
+      <div class="title">{{ appointment.title }}</div>
+      <div class="details">{{ appointment.details }}</div>
+    </div>
+  </div>
+</div>

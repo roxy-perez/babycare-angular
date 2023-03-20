@@ -1,0 +1,57 @@
+@import '../../../styles/styles.scss';
+.container {
+    @include router-content;
+    font-family: $ff-subtitle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 100px;
+    .appointment {
+        height: 80px;
+        background: #79A1E8;
+        color: $white;
+        border-radius: 10px;
+        width: 90%;
+        display: flex;
+        overflow: hidden;
+        .date {
+            height: 60px;
+            padding: 10px;
+            width: 15%;
+            background-color: $red;
+            color: $white;
+            text-align: center;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .time {
+            height: 60px;
+            padding: 10px;
+            width: 20%;
+            background-color: $white;
+            color: $red;
+            text-align: center;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .info {
+            width: 65%;
+            height: 60px;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            .title {
+                font-size: 1.5em;
+            }
+            .details {
+                overflow-y: auto;
+            }
+        }
+    }
+}
