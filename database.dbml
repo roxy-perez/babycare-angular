@@ -42,25 +42,25 @@ Table babycare.feeding {
   created_at timestamp [default: `now()`, note: "Fecha y hora de creación"]
 }
 
-Enum poop_type {
+Enum poo_type {
   soft
   hard
   normal
   diarrhea
 }
 
-Enum poop_color {
+Enum poo_color {
   black
   brown
   yellow
   green
 }
 
-Table babycare.poop {
+Table babycare.poo {
   id int [pk, increment]
   baby_id int [ref: > babycare.babies.id]
-  consistency poop_type
-  color poop_color
+  consistency poo_type
+  color poo_color
   created_at timestamp [default: `now()`, note: "Fecha y hora de creación"]
 }
 
@@ -87,7 +87,7 @@ Table babycare.appointments {
   title varchar(100) [not null]
   date timestamp [not null]
   time time [not null]
-  notes text [note: "Campo para agregar detalles acerca de la cita"]
+  details text [note: "Campo para agregar detalles acerca de la cita"]
 }
 
 
