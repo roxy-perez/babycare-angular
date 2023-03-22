@@ -27,18 +27,18 @@ form {
     label,
     select {
       display: block;
-      width: 80vw;
-      border: 1px solid $blue;
+      width: 75vw;
+      border: 1px solid rgba(242, 46, 82, .4);
       border-radius: 10px;
-      font-family: $ff-title;
-      font-size: 2rem;
+      font-family: $ff-subtitle;
+      font-size: 1.4rem;
       font-weight: $fw-medium;
-      color: $green;
+      color: $blue;
       line-height: 1.5;
       text-align: center;
 
       &::placeholder {
-        color: $green;
+        color: $blue;
       }
     }
 
@@ -51,7 +51,7 @@ form {
   }
 
   .btn {
-    @include btn-no-shadow($blue, $white, $light-blue);
+    @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
     @include blue-shadow;
   }
 

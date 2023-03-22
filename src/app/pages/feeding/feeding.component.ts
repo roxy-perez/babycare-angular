@@ -23,25 +23,25 @@ export class FeedingComponent {
 
   feedings: Feeding[] = [
     {
-      leftBreast: `Izquierdo: 00:04`,
-      rightBreast: `Derecho: 00:03`,
-      total: `Total: 00:07`,
+      leftBreast: `00:04`,
+      rightBreast: `00:03`,
+      total: `00:07`,
       bottle: 160,
       solid: 50,
       date: new Date()
     },
     {
-      leftBreast: `Izquierdo: 07:04`,
-      rightBreast: `Derecho: 02:00`,
-      total: `Total: 09:04`,
+      leftBreast: `07:04`,
+      rightBreast: `02:00`,
+      total: `09:04`,
       bottle: 240,
       solid: 45,
       date: new Date('2023-03-20T08:35:45')
     },
     {
-      leftBreast:  `Izquierdo: '00:06`,
-      rightBreast: `Derecho: 01:05`,
-      total: `Total: 01:11`,
+      leftBreast:  `00:06`,
+      rightBreast: `01:05`,
+      total: `01:11`,
       bottle: 200,
       solid: 60,
       date: new Date('2023-03-17T15:30:45')

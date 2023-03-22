@@ -1,19 +1,21 @@
 <main class="container">
   <p><span>A</span> limentación</p>
   <div class="feeding" *ngFor="let feeding of feedings">
-    <fa-icon [icon]="faBreastfeeding" size="2x" class="faBreastfeeding"
-      nIf="feeding.leftBreast || feeding.rightBreast"></fa-icon>
-    <div>{{ feeding.leftBreast }}</div>
-    <div>{{ feeding.rightBreast }}</div>
-    <div>{{ feeding.total }}</div>
-    <div>
-      <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" nIf="feeding.bottle">
-      {{ feeding.bottle }} ml
+    <div class="date">{{ feeding.date | dateFormat }}</div>
+    <div class="breasts">
+      <div><span>Izquierdo: </span>{{ feeding.leftBreast }}</div>
+      <div><span>Derecho: </span>{{ feeding.rightBreast }}</div>
     </div>
-    <div>
-      <fa-icon [icon]="faFood" size="2x" class="faFood" nIf="feeding.solid"></fa-icon>
-      {{ feeding.solid }} g.
+    <div class="total"><span>Total: </span>{{ feeding.total }}</div>
+    <div class="otherFeed">
+      <div>
+        <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" nIf="feeding.bottle">
+        {{ feeding.bottle }} ml
+      </div>
+      <div>
+        <fa-icon [icon]="faFood" size="2x" class="faFood" nIf="feeding.solid"></fa-icon>
+        {{ feeding.solid }} g.
+      </div>
     </div>
-    <div>{{ feeding.date | dateFormat }}</div>
   </div>
 </main>
