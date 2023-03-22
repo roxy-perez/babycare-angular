@@ -1,39 +1,50 @@
 <form class="container" #form="ngForm" (ngSubmit)="create(form)" ngNativeValidate>
   <div class="grid-container">
     <div class="grid-item">
-      <div><fa-icon [icon]="faBreastfeeding" size="2x" class="faBreastfeeding"></fa-icon></div>
+      <div>
+        <fa-icon [icon]="faBreastfeeding" size="2x" class="faBreastfeeding"></fa-icon>
+      </div>
     </div>
-    <div class="grid-item"><button class="btn" (click)="startTimer('left')" [disabled]="isRunningLeft">Izquierda</button>
-      <h4 name="time_left" [(ngModel)]="time_left">{{ leftBreastTime }}</h4>
+    <div class="grid-item">
+      <button class="btn" (click)="startTimer('left')" [disabled]="isRunningLeft">
+        Izquierda
+      </button>
+      <input name="leftBreast" [(ngModel)]="leftBreast" />
     </div>
-    <div class="grid-item"><button class="btn" (click)="startTimer('right')" [disabled]="isRunningRight">Derecha</button>
-      <h4 name="time_right" [(ngModel)]="time_right">{{ rightBreastTime }}</h4>
+    <div class="grid-item">
+      <button class="btn" (click)="startTimer('right')" [disabled]="isRunningRight">
+        Derecha
+      </button>
+      <input name="rightBreast" [(ngModel)]="rightBreast" />
     </div>
     <div class="grid-item total">
       <h3 class="time">Total</h3>
     </div>
     <div class="grid-item">
-      <button class="stop" (click)="stopTimer()"><fa-icon [icon]="faStop" class="faStop" size="2x"></fa-icon></button>
-      <h3 name="total_time" [(ngModel)]="total_time">{{ totalTime }} min</h3>
-      <button class="reset" (click)="resetTimer()"><fa-icon [icon]="faArrowRotateBackward" class="faArrow" size="2x"></fa-icon></button>
+      <button class="stop" (click)="stopTimer()">
+        <fa-icon [icon]="faStop" class="faStop" size="2x"></fa-icon>
+      </button>
+      <input name="total" [(ngModel)]="total" />
+      <button class="reset" (click)="resetTimer()">
+        <fa-icon [icon]="faArrowRotateBackward" class="faArrow" size="2x"></fa-icon>
+      </button>
     </div>
   </div>
   <div class="bottle">
     <div class="bottle-edit">
-      <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" alt="Logo">
-      <input class="bottle-amount" type="number" placeholder="0" name="bottle_amount" [(ngModel)]="bottle_amount">
-      <h3 class="bottle-measure"> ml.</h3>
+      <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" alt="Logo" />
+      <input class="bottle-amount" type="number" placeholder="0" name="bottle" [(ngModel)]="bottle" />
+      <h3 class="bottle-measure">ml.</h3>
     </div>
   </div>
   <div class="solids">
     <div class="solids-edit">
       <fa-icon [icon]="faFood" size="2x"></fa-icon>
-      <input class="solids-amount" type="number" name="solids_amount" placeholder="0" [(ngModel)]="solids_amount">
-      <h3> g.</h3>
+      <input class="solids-amount" type="number" name="solid" placeholder="0" [(ngModel)]="solid" />
+      <h3>g.</h3>
     </div>
   </div>
   <div class="form-btn">
     <button class="form-btn">Guardar</button>
   </div>
-
 </form>

@@ -42,8 +42,8 @@
 }
 
 @mixin red-shadow {
-  -webkit-box-shadow: inset 1px 3px 8px 5px #EF3349, 2px 5px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, .1);
-  box-shadow: inset 1px 3px 8px 5px #EF3349, 2px 5px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, .1);
+  -webkit-box-shadow: inset 1px 3px 8px 5px #EF3349, 2px 2px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, .1);
+  box-shadow: inset 1px 2px 2px 2px #EF3349, 2px 2px 4px 0px #F22E52, 5px 5px 5px 5px rgba(239, 51, 73, .1)
 }
 
 @mixin green-shadow {

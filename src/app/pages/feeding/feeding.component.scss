@@ -12,7 +12,7 @@
   margin: 0 auto;
 
   p {
-    font-size: 1.3rem;
+    font-size: 2rem;
     line-height: 1.5;
     font-family: $ff-title;
     font-weight: $fw-medium;
@@ -30,7 +30,7 @@
 
 .feeding {
   width: 90%;
-  height: 200px;
+  /* height: 200px; */
   background-color: $green;
   border-radius: 10px;
   display: grid;
@@ -40,7 +40,7 @@
   align-items: center;
   padding: 0.1em 0.2em;
 
-  div{
+  div {
     padding: .2em .2em;
   }
 
@@ -49,4 +49,8 @@
     width: 40px;
   }
 
+}
+
+.faBreastfeeding, .faFood{
+  color: $white;
 }
