@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Baby-Care';
   backgroundColor = '#FFF';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
