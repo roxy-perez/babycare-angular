@@ -52,11 +52,15 @@
     }
 
     button {
-      height: 60px;
+      /* height: 60px;
       margin-top: 20px;
       border: 1px solid $yellow;
       background-color: $yellow;
-      color: $white;
+      color: $white; */
+      /* Lo he puesto exactamente igual que Iniciar Sesión de la página frontal */
+      margin: 0 auto;
+      @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
+      box-shadow: 2px 5px 5px #c9697a;
     }
   }
 

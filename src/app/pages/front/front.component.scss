@@ -22,13 +22,15 @@
     button {
 
       &.signup-btn {
-        @include btn-no-shadow($green, $white, rgba(89, 255, 0, 0.3));
-        @include green-shadow;
+        @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
+        @include blue-shadow;
+        text-align: center;
       }
 
       &.signin-btn {
-        @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
-        @include blue-shadow;
+        @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
+        box-shadow: 2px 5px 5px #c9697a;
+        text-align: center;
       }
     }
   }
@@ -49,7 +51,7 @@ main {
     @include text-white-shadow;
   }
 
-  p {
+  h2 {
     font-size: 1.2rem;
     line-height: 1.5;
     font-family: $ff-subtitle;
@@ -61,7 +63,6 @@ main {
     span {
       font-family: $ff-title;
       font-weight: $fw-medium;
-      @include span-letter;
     }
   }
 }
