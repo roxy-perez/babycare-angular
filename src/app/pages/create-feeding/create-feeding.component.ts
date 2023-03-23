@@ -9,6 +9,7 @@ import {
   faBowlFood,
 } from '@fortawesome/free-solid-svg-icons';
 import { Feeding } from 'src/app/models/feeding';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-feeding',
@@ -40,6 +41,8 @@ export class CreateFeedingComponent {
   elapsedTimeLeft: number = 0;
   elapsedTimeRight: number = 0;
 
+  constructor(public router: Router) {}
+
   create(form: NgForm) {
     const date = new Date();
     const feed: Feeding = {
@@ -47,6 +50,7 @@ export class CreateFeedingComponent {
       date,
     };
     console.log(feed);
+    this.router.navigateByUrl('/feeding');
   }
 
   startTimer(breast: string) {
