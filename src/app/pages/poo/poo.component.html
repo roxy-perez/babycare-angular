@@ -1,8 +1,6 @@
 <div class="container">
-  <p class="logo">
-    <fa-icon [icon]="faPoo"></fa-icon>
-  </p>
-  <div  class="poo" *ngFor="let poo of poos">
+  <h2 class="title"><span>D</span> eposiciones</h2>
+  <div class="poo" *ngFor="let poo of poos">
     <div [class]="poo.color"></div>
     <div>{{ poo.consistency | translate | titlecase }}</div>
     <div>{{ poo.date | dateFormat }}</div>

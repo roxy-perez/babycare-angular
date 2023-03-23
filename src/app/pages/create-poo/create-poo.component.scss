@@ -8,13 +8,6 @@
     align-items: center;
 }
 
-.logo{
-    font-size: 5rem;
-    margin: 20px 0 0 0;
-    color: #56392B;
-
-}
-
 h2 {
     font-family: $ff-title;
     font-size: 2rem;
@@ -23,8 +16,7 @@ h2 {
     span {
       @include span-letter;
     }
-
-  }
+}
 
 .poo-color{
     width: 95%;
@@ -70,7 +62,6 @@ h2 {
     width: 95%;
     height: 180px;
     background-color: #FDF2C9;
-    color: $blue;
     border-radius: 10px;
     align-items: center;
     display: grid;
@@ -84,7 +75,7 @@ h2 {
     input[type="radio"] {
         width: 30px;
         height: 30px;
-        border: 4px solid $white;
+        border: 2px solid $red;
         border-radius: 50%;
         background-color: #FDF2C9;
         position: relative;
@@ -97,8 +88,8 @@ h2 {
         position: absolute;
         top: 4px;
         left: 4px;
-        width: 14px;
-        height: 14px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background-color: $red;
       }
