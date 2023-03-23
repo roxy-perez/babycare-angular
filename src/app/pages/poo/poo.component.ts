@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { faPoo } from '@fortawesome/free-solid-svg-icons';
 import { Poo } from 'src/app/models/poo';
 import { PooService } from 'src/app/services/poo.service';
 
@@ -9,7 +8,6 @@ import { PooService } from 'src/app/services/poo.service';
   styleUrls: ['./poo.component.scss'],
 })
 export class PooComponent {
-  faPoo = faPoo;
   poos: Poo[];
 
   constructor(public pooService: PooService) {
