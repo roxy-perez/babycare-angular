@@ -22,10 +22,50 @@ form {
   }
 
   .input-group {
+    width: 100%;
+    display: flex;
+    flex-flow: nowrap;
+    align-items: stretch;
+    justify-content: center;
+
+    .icon {
+      width: fit-content;
+      margin: 0;
+      padding: 0.375rem 0.75rem;
+      display: flex;
+      align-items: center;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border: 0.0625rem solid $red;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: $red;
+      text-align: center;
+      background-color: $red;
+    }
 
     input,
-    label,
     select {
+      min-height: 3rem;
+      padding: 0.375rem 0.75rem;
+      flex-grow: 1;
+      display: block;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border: 1px solid rgba(242, 46, 82, .4);
+      border-left: 0;
+      font-family: $ff-subtitle;
+      font-size: 1.4rem;
+      font-weight: $fw-medium;
+      line-height: 1.5;
+      color: $blue;
+      background-color:white;
+      /* flex-grow: 1;
       display: block;
       width: 75vw;
       border: 1px solid rgba(242, 46, 82, .4);
@@ -35,7 +75,7 @@ form {
       font-weight: $fw-medium;
       color: $blue;
       line-height: 1.5;
-      text-align: center;
+      text-align: center; */
 
       &::placeholder {
         color: $blue;
@@ -53,6 +93,8 @@ form {
   .btn {
     @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
     @include blue-shadow;
+    width: 150px;
+
   }
 
   .back {
