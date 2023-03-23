@@ -11,6 +11,7 @@ import { CreatePooComponent } from './pages/create-poo/create-poo.component';
 import { CreateFeedingComponent } from './pages/create-feeding/create-feeding.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'feeding/create', component: CreateFeedingComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'appointments/create', component: CreateAppointmentsComponent },
+  { path: 'edit-profile', component: EditProfileComponent },
 ];
 
 @NgModule({

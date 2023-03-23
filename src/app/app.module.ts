@@ -23,6 +23,7 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 registerLocaleData(localeEs);
 
@@ -44,6 +45,7 @@ registerLocaleData(localeEs);
     CreateFeedingComponent,
     AppointmentsComponent,
     CreateAppointmentsComponent,
+    EditProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],

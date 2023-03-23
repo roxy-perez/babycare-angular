@@ -22,11 +22,12 @@
     </div>
     <div class="grid-item">
       <button class="stop" (click)="stopTimer()">
-        <fa-icon [icon]="faStop" class="faStop" size="2x"></fa-icon>
+        <fa-icon [icon]="faStop" class="faStop"></fa-icon>
       </button>
-      <input name="total" [(ngModel)]="total" readonly/>
+      <input class="total-time" name="total" [(ngModel)]="total" readonly />
       <button class="reset" (click)="resetTimer()">
-        <fa-icon [icon]="faArrowRotateBackward" class="faArrow" size="2x"></fa-icon>
+        <fa-icon [icon]="faArrowRotateBackward" class="faArrow"></fa-icon>
+
       </button>
     </div>
   </div>
