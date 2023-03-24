@@ -17,21 +17,21 @@
         <div class="lx-column">
           <form action="get">
             <div class="fieldset">
-              <label for="user-name">Nombre de usuario</label>
+
               <div class="input-wrapper">
                 <span class="icon"><i class="fas fa-user"></i></span>
                 <input type="text" id="user-name" value="Siri" autocomplete="username" required>
               </div>
             </div>
             <div class="fieldset">
-              <label for="baby_name">Nombre del bebé</label>
+
               <div class="input-wrapper">
                 <span class="icon"><i class="fas fa-baby-card"></i></span>
                 <input type="text" id="baby_name" value="Alexa" required>
               </div>
             </div>
             <div class="fieldset">
-              <label for="email">E-mail</label>
+
               <div class="input-wrapper">
                 <span class="icon"><i class="fas fa-envelope"></i></span>
                 <input type="email" id="email" value="lorem@ipsum.com" readonly>
@@ -39,15 +39,18 @@
               <div id="email-helper" class="helper"></div>
             </div>
             <div class="fieldset">
-              <label for="pass">Password</label>
               <div class="input-wrapper">
                 <span class="icon"><i class="fas fa-key"></i></span>
                 <input type="password" id="pass" value="pass123*" autocomplete="current-password">
               </div>
             </div>
+            <div class="fieldset">
+              <div class="input-wrapper">
+                <span class="icon"><i class="fas fa-key"></i></span>
+                <input type="password" id="confirm-pass" value="pass123*" autocomplete="confirm-password">
+              </div>
+            </div>
             <div class="actions">
-              <a id="cancel" class="lx-btn" (click)="onCancel()"><i class="fas fa-ban"></i>&nbsp;&nbsp;Cancelar</a>
-              <a id="clear" class="lx-btn" (click)="onClear()"><i class="fas fa-broom"></i>&nbsp;&nbsp;Limpiar</a>
               <a id="save" class="lx-btn" (click)="onSave()"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</a>
             </div>
           </form>
