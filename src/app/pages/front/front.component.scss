@@ -18,19 +18,18 @@
   .cta-buttons {
     @include flex-center-container(column);
     gap: 15px;
-
     button {
-
+      width: 100% !important;
       &.signup-btn {
         @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
-        @include blue-shadow;
         text-align: center;
+        font-family: $ff-subtitle;
       }
 
       &.signin-btn {
         @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
-        box-shadow: 2px 5px 5px #c9697a;
         text-align: center;
+        font-family: $ff-subtitle;
       }
     }
   }
