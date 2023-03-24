@@ -15,7 +15,6 @@
   padding-bottom: .6em;
   border-radius: 20px;
   background: rgba(89, 217, 97, .6);
-  border: 1px solid $white;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(1, 1fr);
@@ -99,7 +98,6 @@
   @include flex-center-container(column);
   background: rgba(89, 217, 97, .6);
   height: 80px;
-  border: 1px solid $white;
   border-radius: 20px;
   color: $white;
 
@@ -126,7 +124,6 @@
   padding-bottom: .7em;
   border-radius: 20px;
   background: rgba(89, 217, 97, .6);
-  border: 1px solid $white;
   color: $white;
   margin-top: .7em;
   @include flex-center-container(column);
@@ -169,8 +166,8 @@ input {
   margin: .5em auto;
 
   button {
+    margin: 1em auto;
     @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
-    box-shadow: 2px 5px 5px #c9697a;
     text-align: center;
   }
 }

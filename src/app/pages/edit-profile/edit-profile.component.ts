@@ -31,11 +31,6 @@ export class EditProfileComponent {
       }
     });
   }
-
-  onClear(){
-    console.log('limpiando cajitas');
-  }
-
   onSave(){
     console.log('Guardando...');
   }
