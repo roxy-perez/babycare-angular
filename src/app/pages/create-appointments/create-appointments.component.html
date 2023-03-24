@@ -4,7 +4,7 @@
   (ngSubmit)="create(form)"
   ngNativeValidate
 >
-  <h2>Nuevo evento</h2>
+  <h2 class="title"><span>N</span> uevo evento</h2>
   <input
     type="text"
     name="title"
@@ -19,5 +19,5 @@
   ></textarea>
   <input type="date" name="date" [(ngModel)]="date" required />
   <input type="time" name="time" [(ngModel)]="time" required />
-  <button class="form-btn">GUARDAR</button>
+  <button class="form-btn">Guardar</button>
 </form>

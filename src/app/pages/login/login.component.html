@@ -1,13 +1,31 @@
 <div class="container">
   <button class="back" (click)="exit()">
-    <fa-icon  [icon]="faArrowLeft" size="2x"></fa-icon>
+    <fa-icon [icon]="faArrowLeft" size="2x"></fa-icon>
   </button>
   <div class="img">
     <img src="assets/img/login-img.png" alt="" />
   </div>
-  <form>
-    <input type="email" placeholder="Correo electronico" />
-    <input type="password" placeholder="Contraseña" />
+  <form #form="ngForm" (ngSubmit)="login(form)" ngNativeValidate>
+    <div class="input-group">
+      <span class="icon"><i class="fas fa-envelope"></i></span>
+      <input
+        type="email"
+        placeholder="Correo electronico"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+    <div class="input-group">
+      <span class="icon"><i class="fas fa-envelope"></i></span>
+      <input
+        type="password"
+        placeholder="Contraseña"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
     <button>Iniciar sesión</button>
   </form>
 </div>

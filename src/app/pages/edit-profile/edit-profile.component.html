@@ -2,10 +2,10 @@
   <section>
     <div class="lx-container-70">
       <div class="lx-row">
-        <h1 class="title"><span>E</span>dita tu perfil</h1>
+        <h1 class="title"><span>E</span> dita tu perfil</h1>
       </div>
       <div class="lx-row align-stretch">
-       <!--  <div class="lx-column column-user-pic">
+        <!--  <div class="lx-column column-user-pic">
           <div class="profile-pic bs-md">
             <h1 class="pic-label">Foto del bebé</h1>
             <div class="pic bs-md">
@@ -16,43 +16,43 @@
         </div> -->
         <div class="lx-column">
           <form action="get">
-            <div class="fieldset">
-
-              <div class="input-wrapper">
-                <span class="icon"><i class="fas fa-user"></i></span>
-                <input type="text" id="user-name" value="Siri" autocomplete="username" required>
-              </div>
+            <div class="input-group">
+              <span class="icon"><i class="fas fa-user"></i></span>
+              <input
+                type="text"
+                id="user-name"
+                value="Siri"
+                autocomplete="username"
+                required
+              />
             </div>
-            <div class="fieldset">
-
-              <div class="input-wrapper">
-                <span class="icon"><i class="fas fa-baby-card"></i></span>
-                <input type="text" id="baby_name" value="Alexa" required>
-              </div>
+            <div class="input-group">
+              <span class="icon"><i class="fas fa-baby-card"></i></span>
+              <input type="text" id="baby_name" value="Alexa" required />
             </div>
-            <div class="fieldset">
-
-              <div class="input-wrapper">
-                <span class="icon"><i class="fas fa-envelope"></i></span>
-                <input type="email" id="email" value="lorem@ipsum.com" readonly>
-              </div>
-              <div id="email-helper" class="helper"></div>
+            <div class="input-group">
+              <span class="icon"><i class="fas fa-envelope"></i></span>
+              <input type="email" id="email" value="lorem@ipsum.com" readonly />
             </div>
-            <div class="fieldset">
-              <div class="input-wrapper">
-                <span class="icon"><i class="fas fa-key"></i></span>
-                <input type="password" id="pass" value="pass123*" autocomplete="current-password">
-              </div>
+            <div class="input-group">
+              <span class="icon"><i class="fas fa-key"></i></span>
+              <input
+                type="password"
+                id="pass"
+                value="pass123*"
+                autocomplete="current-password"
+              />
             </div>
-            <div class="fieldset">
-              <div class="input-wrapper">
-                <span class="icon"><i class="fas fa-key"></i></span>
-                <input type="password" id="confirm-pass" value="pass123*" autocomplete="confirm-password">
-              </div>
+            <div class="input-group">
+              <span class="icon"><i class="fas fa-key"></i></span>
+              <input
+                type="password"
+                id="confirm-pass"
+                value="pass123*"
+                autocomplete="confirm-password"
+              />
             </div>
-            <div class="actions">
-              <a id="save" class="lx-btn" (click)="onSave()"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</a>
-            </div>
+            <button class="btn" type="submit">Guardar</button>
           </form>
         </div>
       </div>
@@ -60,4 +60,9 @@
   </section>
 </main>
 
-<script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" defer crossorigin="anonymous" data-search-pseudo-elements></script>
+<script
+  src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
+  defer
+  crossorigin="anonymous"
+  data-search-pseudo-elements
+></script>

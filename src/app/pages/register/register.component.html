@@ -1,29 +1,60 @@
 <form>
   <div>
     <button class="back" (click)="exit()">
-      <fa-icon  [icon]="faArrowLeft" size="2x"></fa-icon>
+      <fa-icon [icon]="faArrowLeft" size="2x"></fa-icon>
     </button>
   </div>
   <h2 class="title"><span>R</span> egistro del bebé</h2>
-  <div class="input-group">
+  <div class="input-group" tabindex="0">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="text" id="username" name="username" placeholder="Usuario" required>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      placeholder="Usuario"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="text" id="baby-name" name="baby-name" placeholder="Nombre del bebé" required>
+    <input
+      type="text"
+      id="baby-name"
+      name="baby-name"
+      placeholder="Nombre del bebé"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="date" class="date" id="birthday" name="birthday" placeholder="F. nacimiento" required>
+    <input
+      type="date"
+      class="date"
+      id="birthday"
+      name="birthday"
+      placeholder="F. nacimiento"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Correo electrónico"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="password" id="password" name="password" placeholder="Password" required>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Password"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
