@@ -34,11 +34,11 @@ export class UserService {
       const user = JSON.parse(storedUser);
       return user;
     }
-    return null;
+    return undefined;
   }
 
   getBabyId(): string {
-    return this.user.Baby.id;
+    return this.user?.Baby?.id || '';
   }
 
   logOut(): void {

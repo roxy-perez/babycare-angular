@@ -104,4 +104,6 @@ input[type="radio"] {
 .form-btn {
     margin-top: 30px;
     @include btn-no-shadow($red, $white, $red);
+    font-family: $ff-subtitle;
+    width: 60%;
 }

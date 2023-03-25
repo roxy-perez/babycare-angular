@@ -33,8 +33,7 @@
       justify-content: center;
       overflow: hidden;
       background-color: $red;
-      border: 1px solid $white;
-      box-shadow: 2px 5px 5px rgb(88, 82, 82);
+      border: 1px solid $red;
       color: $white;
       font-family: $ff-subtitle;
       font-size: 1.3rem;
@@ -169,5 +168,7 @@ input {
     margin: 1em auto;
     @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
     text-align: center;
+    font-family: $ff-subtitle;
+    width: 70%;
   }
 }
