@@ -6,9 +6,13 @@
     <img src="../../../assets/img/baby.jpg" alt="" />
   </div>
   <div
+    *ngIf="!isHomePage"
     [ngClass]="allowNavigation ? 'icon-div' : 'icon-div-hidden'"
     (click)="navigate()"
   >
     <fa-icon [icon]="faPlus" size="2x"></fa-icon>
+  </div>
+  <div *ngIf="isHomePage" class="icon-div" (click)="userService.logOut()">
+    <fa-icon [icon]="faArrowRightFromBracket" size="2x"></fa-icon>
   </div>
 </header>
