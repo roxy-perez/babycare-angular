@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { faGear, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGear,
+  faPlus,
+  faArrowRightFromBracket,
+} from '@fortawesome/free-solid-svg-icons';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +15,11 @@ import { faGear, faPlus } from '@fortawesome/free-solid-svg-icons';
 export class HeaderComponent {
   faGear = faGear;
   faPlus = faPlus;
+  faArrowRightFromBracket = faArrowRightFromBracket;
   allowNavigation = false;
+  isHomePage = false;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, public userService: UserService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         switch (this.router.url) {
@@ -20,9 +27,14 @@ export class HeaderComponent {
           case '/feeding':
           case '/appointments':
             this.allowNavigation = true;
+            this.isHomePage = false;
+            break;
+          case '/home':
+            this.isHomePage = true;
             break;
           default:
             this.allowNavigation = false;
+            this.isHomePage = false;
         }
       }
     });

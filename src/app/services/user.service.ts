@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { User } from '../models/user';
 
@@ -11,7 +12,7 @@ export class UserService {
   apiUrl = 'http://localhost:3000/api/v1/user';
   user: User;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public router: Router) {
     this.user = this.getSession();
   }
 
@@ -23,6 +24,7 @@ export class UserService {
   }
 
   saveSession(user: User): void {
+    this.user = user;
     localStorage.setItem('user', JSON.stringify(user));
   }
 
@@ -37,5 +39,11 @@ export class UserService {
 
   getBabyId(): string {
     return this.user.Baby.id;
+  }
+
+  logOut(): void {
+    this.user = null;
+    localStorage.removeItem('user');
+    this.router.navigateByUrl('/front');
   }
 }

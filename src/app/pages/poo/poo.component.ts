@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Poo } from 'src/app/models/poo';
 import { PooService } from 'src/app/services/poo.service';
 import { UserService } from 'src/app/services/user.service';
+
+import { Poo } from 'src/app/models/poo';
 
 @Component({
   selector: 'app-poo',
