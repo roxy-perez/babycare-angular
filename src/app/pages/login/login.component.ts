@@ -25,13 +25,14 @@ export class LoginComponent {
   login(form: NgForm) {
     const { email, password } = form.value;
     this.userService.login(email, password).subscribe({
-      next: (user: User) => {
-        if (user) this.userService.user = user;
+      next: (res: { data: { user: User } }) => {
+        const { user } = res.data;
+        if (user) this.userService.saveSession(user);
         this.router.navigateByUrl('/home');
         return true;
       },
-      error: (error: Error) => {
-        console.log(error);
+      error: (error: any) => {
+        console.log(error.error.error.message);
         return false;
       },
     });

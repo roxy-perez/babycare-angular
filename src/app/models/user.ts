@@ -1,6 +1,9 @@
 export class User {
   id?: string;
-  familyName: string;
+  username: string;
   email: string;
   password: string;
+  Baby?: {
+    id: string;
+  };
 }

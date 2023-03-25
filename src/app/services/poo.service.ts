@@ -1,59 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { Poo } from '../models/poo';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PooService {
-  poos: Poo[] = [
-    {
-      color: 'brown',
-      consistency: 'normal',
-      date: new Date(),
-    },
-    {
-      color: 'brown',
-      consistency: 'hard',
-      date: new Date('2023-03-17T15:30:45'),
-    },
-    {
-      color: 'brown',
-      consistency: 'normal',
-      date: new Date('2023-03-16T05:40:45'),
-    },
-    {
-      color: 'yellow',
-      consistency: 'soft',
-      date: new Date('2023-03-15T10:20:45'),
-    },
-    {
-      color: 'green',
-      consistency: 'diarrhea',
-      date: new Date('2023-03-14T22:30:45'),
-    },
-    {
-      color: 'green',
-      consistency: 'soft',
-      date: new Date('2023-03-14T08:10:45'),
-    },
-    {
-      color: 'yellow',
-      consistency: 'normal',
-      date: new Date('2023-03-13T21:00:45'),
-    },
-    {
-      color: 'black',
-      consistency: 'hard',
-      date: new Date('2023-03-12T12:30:45'),
-    },
-  ];
-  constructor() {}
+  apiUrl = 'http://localhost:3000/api/v1/poo';
 
-  findMany(): Poo[] {
-    return this.poos.sort((a, b) => b.date.getTime() - a.date.getTime());
+  constructor(public http: HttpClient) {}
+
+  getAll(babyId: string): Observable<Object> {
+    return this.http.get(`${this.apiUrl}/${babyId}`);
   }
 
-  create(poo: Poo): void {
-    this.poos.push(poo);
+  create(poo: Poo): Observable<Object> {
+    return this.http.post(this.apiUrl, poo);
   }
 }
