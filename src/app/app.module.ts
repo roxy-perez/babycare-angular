@@ -58,7 +58,7 @@ registerLocaleData(localeEs);
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+      timeOut: 1500,
       positionClass: 'toast-top-center',
       preventDuplicates: true,
       closeButton: true,

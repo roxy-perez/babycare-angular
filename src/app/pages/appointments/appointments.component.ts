@@ -28,7 +28,7 @@ export class AppointmentsComponent {
       },
       error: (error: any) => {
         const errorMessage = error.error.error.message;
-        this.toastService.error(errorMessage);
+        console.log(errorMessage);
         return false;
       },
     });
