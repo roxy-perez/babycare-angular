@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+
 import { Appointment } from 'src/app/models/appointment';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,7 +16,8 @@ export class AppointmentsComponent {
 
   constructor(
     public appointmentService: AppointmentService,
-    public userService: UserService
+    public userService: UserService,
+    public toastService: ToastService
   ) {
     this.babyId = this.userService.getBabyId();
     this.appointmentService.getAll(this.babyId).subscribe({
@@ -24,7 +27,8 @@ export class AppointmentsComponent {
         return true;
       },
       error: (error: any) => {
-        console.log(error.error.error.message);
+        const errorMessage = error.error.error.message;
+        this.toastService.error(errorMessage);
         return false;
       },
     });

@@ -1,0 +1,30 @@
+
+@import 'ngx-toastr/toastr';
+.custom-toast {
+    color: $white;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    font-family: $ff-subtitle;
+    font-size: 1.5rem;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 80px;
+    background-image: none;
+    button {
+        display: none !important;
+    }
+}
+
+.toast-error {
+    @extend .custom-toast;
+    background-color: red;
+}
+
+.toast-success {
+    @extend .custom-toast;
+    background-color: green;
+}
