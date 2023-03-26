@@ -5,5 +5,7 @@ export class User {
   password: string;
   Baby?: {
     id: string;
+    name: string;
+    birthday: string;
   };
 }

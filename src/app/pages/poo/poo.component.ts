@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+
 import { PooService } from 'src/app/services/poo.service';
 import { UserService } from 'src/app/services/user.service';
-
+import { ToastService } from 'src/app/services/toast.service';
 import { Poo } from 'src/app/models/poo';
 
 @Component({
@@ -13,7 +14,11 @@ export class PooComponent {
   babyId: string;
   poos: Poo[];
 
-  constructor(public pooService: PooService, public userService: UserService) {
+  constructor(
+    public pooService: PooService,
+    public userService: UserService,
+    public toastService: ToastService
+  ) {
     this.babyId = this.userService.getBabyId();
     this.pooService.getAll(this.babyId).subscribe({
       next: (res: { data: { poos: Poo[] } }) => {
@@ -22,7 +27,8 @@ export class PooComponent {
         return true;
       },
       error: (error: any) => {
-        console.log(error.error.error.message);
+        const errorMessage = error.error.error.message;
+        console.log(errorMessage);
         return false;
       },
     });

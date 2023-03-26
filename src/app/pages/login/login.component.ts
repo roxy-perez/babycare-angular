@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
+
+import { UserService } from 'src/app/services/user.service';
+import { ToastService } from 'src/app/services/toast.service';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -15,7 +17,11 @@ export class LoginComponent {
   email: string;
   password: string;
 
-  constructor(private router: Router, public userService: UserService) {}
+  constructor(
+    private router: Router,
+    public userService: UserService,
+    public toastService: ToastService
+  ) {}
 
   exit() {
     window.close();
@@ -32,7 +38,8 @@ export class LoginComponent {
         return true;
       },
       error: (error: any) => {
-        console.log(error.error.error.message);
+        const errorMessage = error.error.error.message;
+        this.toastService.error(errorMessage);
         return false;
       },
     });

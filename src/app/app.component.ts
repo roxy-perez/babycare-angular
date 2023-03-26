@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
+import { UserService } from './services/user.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,9 +12,34 @@ export class AppComponent {
   title = 'Baby-Care';
   backgroundColor = '#FFF';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public userService: UserService) {}
 
   ngOnInit() {
+    this.selectBackgroundColor();
+    this.redirectAuthenticatedUser();
+  }
+
+  redirectAuthenticatedUser() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        switch (this.router.url) {
+          case '/front':
+          case '/register':
+          case '/login':
+            if (this.userService.user) {
+              this.router.navigateByUrl('/home');
+            }
+            break;
+          default:
+            if (!this.userService.user) {
+              this.router.navigateByUrl('/front');
+            }
+        }
+      }
+    });
+  }
+
+  selectBackgroundColor() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         switch (this.router.url) {

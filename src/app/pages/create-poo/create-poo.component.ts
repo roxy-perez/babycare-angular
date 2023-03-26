@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faPoo } from '@fortawesome/free-solid-svg-icons';
+
 import { Poo } from 'src/app/models/poo';
 import { PooService } from 'src/app/services/poo.service';
+import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,7 +21,8 @@ export class CreatePooComponent {
   constructor(
     public router: Router,
     public pooService: PooService,
-    public userService: UserService
+    public userService: UserService,
+    public toastService: ToastService
   ) {}
 
   create(form: NgForm) {
@@ -32,11 +35,15 @@ export class CreatePooComponent {
     this.pooService.create(poo).subscribe({
       next: (res: { data: { poo: Poo } }) => {
         const { poo } = res.data;
-        if (poo) this.router.navigateByUrl('/poo');
+        if (poo) {
+          this.toastService.success('Guardado correctamente');
+          this.router.navigateByUrl('/poo');
+        }
         return true;
       },
       error: (error: any) => {
-        console.log(error.error.error.message);
+        const errorMessage = error.error.error.message;
+        this.toastService.error(errorMessage);
         return false;
       },
     });
