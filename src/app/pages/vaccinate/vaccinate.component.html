@@ -3,20 +3,14 @@
 
   <div class="vaccinate">
     <label for="period">Selecciona el periodo de vacunación:</label>
-    <select id="period" class="select-css">
-      <option value="0">Recién nacido</option>
-      <option value="1">1 mes</option>
-      <option value="2">2 meses</option>
-      <option value="4">4 meses</option>
-      <option value="6">6 meses</option>
-      <option value="12">12 meses</option>
+    <select id="period" class="select-css" (change)="onSelectPeriod($event.target.value)">
+      <option value=""> -- &#8595; -- </option> <!-- not selected / blank option -->
+      <option *ngFor="let period of periods" [value]="period.value">{{period.display}}</option>
     </select>
-
-    <ul class="vaccines-list">
-      <li *ngFor="let vaccine of vaccines">{{ vaccine.name }}</li>
-      <li>Hepatitis B</li>
-      <li>Pentavalente (Difteria, Tétanos, Tosferina, Haemophilus Influenzae B y Hepatitis B)</li>
-      <li>Polio</li>
+    <ul class="vaccines-list" *ngIf="vaccineDescription">
+      <li>
+        {{ vaccineDescription }}
+      </li>
     </ul>
     <fa-icon [icon]="faSyringe" size="2x"></fa-icon>
   </div>
