@@ -27,6 +27,7 @@ import { TranslatePipe } from './pipes/translate.pipe';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { ShowPooComponent } from './pages/show-poo/show-poo.component';
 
 registerLocaleData(localeEs);
 
@@ -49,6 +50,7 @@ registerLocaleData(localeEs);
     AppointmentsComponent,
     CreateAppointmentsComponent,
     EditProfileComponent,
+    ShowPooComponent,
   ],
   imports: [
     BrowserModule,

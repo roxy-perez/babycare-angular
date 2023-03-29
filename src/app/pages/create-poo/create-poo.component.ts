@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faPoo } from '@fortawesome/free-solid-svg-icons';
 
 import { Poo } from 'src/app/models/poo';
 import { PooService } from 'src/app/services/poo.service';
@@ -14,7 +13,6 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./create-poo.component.scss'],
 })
 export class CreatePooComponent {
-  faPoo = faPoo;
   color: string;
   consistency: string;
 
