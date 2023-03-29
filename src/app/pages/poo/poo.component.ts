@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PooService } from 'src/app/services/poo.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +18,8 @@ export class PooComponent {
   constructor(
     public pooService: PooService,
     public userService: UserService,
-    public toastService: ToastService
+    public toastService: ToastService,
+    public router: Router
   ) {
     this.babyId = this.userService.getBabyId();
     this.pooService.getAll(this.babyId).subscribe({
@@ -32,5 +34,9 @@ export class PooComponent {
         return false;
       },
     });
+  }
+
+  show(id: string) {
+    this.router.navigateByUrl(`/poo/show/${id}`);
   }
 }

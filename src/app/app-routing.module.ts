@@ -12,6 +12,7 @@ import { CreateFeedingComponent } from './pages/create-feeding/create-feeding.co
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { ShowPooComponent } from './pages/show-poo/show-poo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,10 +21,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'poo', component: PooComponent },
-  { path: 'feeding', component: FeedingComponent },
-  { path: 'vaccinate', component: VaccinateComponent },
   { path: 'poo/create', component: CreatePooComponent },
+  { path: 'poo/show/:id', component: ShowPooComponent },
+  { path: 'feeding', component: FeedingComponent },
   { path: 'feeding/create', component: CreateFeedingComponent },
+  { path: 'vaccinate', component: VaccinateComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'appointments/create', component: CreateAppointmentsComponent },
   { path: 'edit-profile', component: EditProfileComponent },

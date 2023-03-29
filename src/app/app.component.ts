@@ -52,6 +52,7 @@ export class AppComponent {
             break;
           case '/poo':
           case '/poo/create':
+          case this.router.url.match(/^\/poo\/show\/.*/)?.[0]:
             this.backgroundColor = '#F9DC76';
             break;
           case '/vaccinate':
