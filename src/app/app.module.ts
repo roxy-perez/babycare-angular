@@ -28,6 +28,7 @@ import { AppointmentsComponent } from './pages/appointments/appointments.compone
 import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ShowPooComponent } from './pages/show-poo/show-poo.component';
+import { ShowAppointmentComponent } from './pages/show-appointment/show-appointment.component';
 
 registerLocaleData(localeEs);
 
@@ -51,6 +52,7 @@ registerLocaleData(localeEs);
     CreateAppointmentsComponent,
     EditProfileComponent,
     ShowPooComponent,
+    ShowAppointmentComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Appointment } from 'src/app/models/appointment';
 import { AppointmentService } from 'src/app/services/appointment.service';
@@ -17,7 +18,8 @@ export class AppointmentsComponent {
   constructor(
     public appointmentService: AppointmentService,
     public userService: UserService,
-    public toastService: ToastService
+    public toastService: ToastService,
+    public router: Router
   ) {
     this.babyId = this.userService.getBabyId();
     this.appointmentService.getAll(this.babyId).subscribe({
@@ -32,5 +34,9 @@ export class AppointmentsComponent {
         return false;
       },
     });
+  }
+
+  show(id: string) {
+    this.router.navigateByUrl(`/appointments/show/${id}`);
   }
 }

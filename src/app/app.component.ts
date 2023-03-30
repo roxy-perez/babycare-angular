@@ -60,6 +60,7 @@ export class AppComponent {
             break;
           case '/appointments':
           case '/appointments/create':
+          case this.router.url.match(/^\/appointments\/show\/.*/)?.[0]:
             this.backgroundColor = '#BEC4FD';
             break;
           default:
