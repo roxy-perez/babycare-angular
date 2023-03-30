@@ -13,6 +13,7 @@ import { AppointmentsComponent } from './pages/appointments/appointments.compone
 import { CreateAppointmentsComponent } from './pages/create-appointments/create-appointments.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ShowPooComponent } from './pages/show-poo/show-poo.component';
+import { ShowAppointmentComponent } from './pages/show-appointment/show-appointment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'vaccinate', component: VaccinateComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'appointments/create', component: CreateAppointmentsComponent },
+  { path: 'appointments/show/:id', component: ShowAppointmentComponent },
   { path: 'edit-profile', component: EditProfileComponent },
 ];
 

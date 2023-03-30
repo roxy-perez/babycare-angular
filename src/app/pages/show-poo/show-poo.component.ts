@@ -42,8 +42,7 @@ export class ShowPooComponent {
         return true;
       },
       error: (error: any) => {
-        const errorMessage = error.error.error.message;
-        this.toastService.error(errorMessage);
+        this.toastService.error('Algo salió mal');
         this.router.navigateByUrl('/poo');
         return false;
       },
@@ -60,6 +59,9 @@ export class ShowPooComponent {
         const { poo } = res.data;
         if (poo) {
           this.toastService.success('Actualizado correctamente');
+          this.router.navigateByUrl('/poo');
+        } else {
+          this.toastService.error('No se pudo actualizar');
           this.router.navigateByUrl('/poo');
         }
         return true;
