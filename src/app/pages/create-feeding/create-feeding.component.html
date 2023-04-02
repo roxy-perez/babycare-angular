@@ -1,51 +1,60 @@
-<form class="container" #form="ngForm" (ngSubmit)="create(form)" ngNativeValidate>
-  <div class="grid-container">
+<form class="container" #feedingForm="ngForm" (ngSubmit)="submitForm(feedingForm)" ngNativeValidate>
+  <label class="type">
+    Selecciona un tipo de alimentación:
+    <select class="select-css" [(ngModel)]="type" name="type" required>
+      <option value=""> -- &#8595; -- </option>
+      <option value="BREASTFEEDING">Breastfeeding</option>
+      <option value="BOTTLE">Bottle</option>
+      <option value="SOLIDS">Solids</option>
+    </select>
+  </label>
+  <div class="grid-container" *ngIf="type=='BREASTFEEDING'">
+
     <div class="grid-item">
       <div>
         <fa-icon [icon]="faBreastfeeding" size="2x" class="faBreastfeeding"></fa-icon>
       </div>
     </div>
     <div class="grid-item">
-      <button class="btn" (click)="startTimer('left')" [disabled]="isRunningLeft">
+      <button class="btn" (click)="startTimer('left')" [disabled]="isRunningLeft || isBreastTimerRunning">
         Izquierda
       </button>
-      <input name="leftBreast" [(ngModel)]="leftBreast" />
+      <input name="timeLeftBreast" [(ngModel)]="timeLeftBreast" [ngModelOptions]="{standalone: true}"  placeholder="00:00"/>
     </div>
     <div class="grid-item">
-      <button class="btn" (click)="startTimer('right')" [disabled]="isRunningRight">
+      <button class="btn"  (click)="startTimer('right')" [disabled]="isRunningRight || isBreastTimerRunning">
         Derecha
       </button>
-      <input name="rightBreast" [(ngModel)]="rightBreast" />
+      <input name="timeRightBreast" [(ngModel)]="timeRightBreast" [ngModelOptions]="{standalone: true}"  placeholder="00:00"/>
     </div>
     <div class="grid-item total">
       <h3 class="time">Total</h3>
     </div>
     <div class="grid-item">
-      <button class="stop" (click)="stopTimer()">
+      <button class="stop" (click)="stopTimer();" type="button">
         <fa-icon [icon]="faStop" class="faStop"></fa-icon>
       </button>
       <input class="total-time" name="total" [(ngModel)]="total" readonly />
-      <button class="reset" (click)="resetTimer()">
+      <button class="reset" (click)="resetForm();" type="button">
         <fa-icon [icon]="faArrowRotateBackward" class="faArrow"></fa-icon>
-
       </button>
     </div>
   </div>
-  <div class="bottle">
+  <div class="bottle" *ngIf="type=='BOTTLE'">
     <div class="bottle-edit">
       <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" alt="Logo" />
-      <input class="bottle-amount" type="number" placeholder="0" name="bottle" [(ngModel)]="bottle" />
+      <input class="bottle-amount" type="number" placeholder="0" name="amountBottle" [(ngModel)]="amountBottle" />
       <h3 class="bottle-measure">ml.</h3>
     </div>
   </div>
-  <div class="solids">
+  <div class="solids" *ngIf="type=='SOLIDS'">
     <div class="solids-edit">
       <fa-icon [icon]="faFood" size="2x"></fa-icon>
-      <input class="solids-amount" type="number" name="solid" placeholder="0" [(ngModel)]="solid" />
+      <input class="solids-amount" type="number" name="amountSolids" placeholder="0" [(ngModel)]="amountSolids" />
       <h3>g.</h3>
     </div>
   </div>
   <div class="form-btn">
-    <button class="form-btn">Guardar</button>
+    <button class="form-btn" type="submit" required>Guardar</button>
   </div>
 </form>

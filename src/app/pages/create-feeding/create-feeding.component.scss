@@ -10,6 +10,34 @@
   overflow: hidden;
 }
 
+.type {
+  @include flex-center-container(column);
+  justify-content: center;
+  margin: 4em 2em;
+  color: $dark-gray;
+  font-family: $ff-subtitle;
+  font-size: 1.3rem;
+  font-weight: $fw-medium;
+  line-height: 1rem;
+  text-align: center
+}
+
+.select-css {
+  @include flex-center-container(column);
+  justify-content: center;
+  background-image: url('../../../assets/img/arrow-down.svg');
+  background-repeat: no-repeat, repeat;
+  background-position: right .6em top 50%, 4em 1em;
+  background-size: .80em auto, 100%;
+  background-color: #e7637b;
+  height: 40px;
+  border-radius: 10px;
+  width: 90%;
+  margin: .2em auto;
+  padding: 0.5em 2em;
+  color: white;
+}
+
 .grid-container {
   padding-top: .4em;
   padding-bottom: .6em;
@@ -24,7 +52,6 @@
     justify-content: center;
     color: $white;
 
-
     .btn {
       width: 120px;
       height: 40px;
@@ -38,8 +65,7 @@
       font-family: $ff-subtitle;
       font-size: 1.3rem;
 
-      &:active,
-      &:focus {
+      &:disabled {
         background-color: $yellow;
         color: $red;
       }

@@ -1,8 +1,11 @@
 export class Feeding {
-  leftBreast: string;
-  rightBreast: string;
-  total: string;
-  bottle: number;
-  solid: number;
-  date: Date;
+  id?:number;
+  timeLeftBreast?: string | null;
+  timeRightBreast?: string | null;
+  amountBottle?: number | null;
+  amountSolids?: number | null;
+  type: string;
+  createdAt: Date;
+  babyId: string;
+  totalTime: string | null;
 }

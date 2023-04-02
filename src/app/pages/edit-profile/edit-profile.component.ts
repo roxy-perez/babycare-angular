@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { ToastService } from 'src/app/services/toast.service';
+import { ApiResponse } from 'src/app/models/api-response';
 
 @Component({
   selector: 'app-edit-profile',
@@ -11,27 +14,38 @@ import Swal from 'sweetalert2';
 export class EditProfileComponent {
 
   faArrowLeft = faArrowLeft;
-  constructor(private router: Router) { }
+  user: User;
+  username: string;
+  babyName: string;
+  email: string;
+  currentPassword: string;
+  newPassword: string;
 
-  onCancel() {
-    Swal.fire({
-      title: '¿Deseas salir sin guardar?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: "#F22E52",
-      confirmButtonText: '¡Por supuesto que sí!',
-      cancelButtonColor: "#59D961",
-      cancelButtonText: 'No, ahora guardaré'
-    }).then((answer) => {
-      if (!answer.isConfirmed) {
-        return;
-      } else {
-        window.close();
-        this.router.navigate(['/home']);
-      }
-    });
+  constructor(private router: Router, public userService: UserService, public toastr: ToastService) {
+    this.user = this.userService.user;
+    this.username = this.user.username;
+    this.babyName = this.user.Baby.name;
+    this.email = this.user.email;
+    this.currentPassword = '';
   }
-  onSave(){
-    console.log('Guardando...');
+
+  onSave() {
+    this.userService.editProfile(this.username,
+      this.babyName,
+      this.email,
+      this.currentPassword,
+      this.newPassword).subscribe({
+        next: (response: ApiResponse) => {
+          this.user = response.message.updatedUser;
+          this.userService.user = this.user;
+          this.userService.user.Baby.name = this.user.Baby.name;
+          console.log(this.userService);
+          this.toastr.success('Perfil editado correctamente');
+        },
+        complete: () => this.router.navigate(['/login']),
+        error: (err) => {
+          this.toastr.error('Error al editar perfil');
+        }
+      });
   }
 }

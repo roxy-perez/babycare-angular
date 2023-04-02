@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
   <div>
     <button class="back" (click)="exit()">
       <fa-icon [icon]="faArrowLeft" size="2x"></fa-icon>
@@ -7,76 +7,32 @@
   <h2 class="title"><span>R</span> egistro del bebé</h2>
   <div class="input-group" tabindex="0">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input
-      type="text"
-      id="username"
-      name="username"
-      placeholder="Usuario"
-      required
-    />
+    <input type="text" id="username" placeholder="Usuario" name="username" [(ngModel)]="user.username" required />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input
-      type="text"
-      id="baby-name"
-      name="baby-name"
-      placeholder="Nombre del bebé"
-      required
-    />
+    <input type="text" placeholder="Nombre del bebé" name="name" [(ngModel)]="user.Baby.name" required />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input
-      type="date"
-      class="date"
-      id="birthday"
-      name="birthday"
-      placeholder="F. nacimiento"
-      required
-    />
+    <input type="date" class="date" id="birthday" placeholder="F. nacimiento" name="birthday"
+      [(ngModel)]="user.Baby.birthday" required />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="Correo electrónico"
-      required
-    />
+    <input type="email" id="email" placeholder="Correo electrónico" name="email" [(ngModel)]="user.email" required />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input
-      type="password"
-      id="password"
-      name="password"
-      placeholder="Password"
-      required
-    />
+    <input type="password" id="password" placeholder="Password" name="password" [(ngModel)]="user.password" required />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <select id="community" name="community" class="select-css">
+    <select id="community" class="select-css" name="communityCode" [(ngModel)]="user.Baby.communityCode">
       <option selected disabled>Comunidad autónoma</option>
-      <option value="andalucia">Andalucía</option>
-      <option value="aragon">Aragón</option>
-      <option value="asturias">Asturias</option>
-      <option value="islas-baleares">Islas Baleares</option>
-      <option value="canarias">Canarias</option>
-      <option value="cantabria">Cantabria</option>
-      <option value="castilla-la-mancha">Castilla-La Mancha</option>
-      <option value="castilla-y-leon">Castilla y León</option>
-      <option value="cataluna">Cataluña</option>
-      <option value="valencia">Comunidad Valenciana</option>
-      <option value="extremadura">Extremadura</option>
-      <option value="galicia">Galicia</option>
-      <option value="madrid">Madrid</option>
-      <option value="murcia">Murcia</option>
-      <option value="navarra">Navarra</option>
-      <option value="pais-vasco">País Vasco</option>
-      <option value="la-rioja">La Rioja</option>
+      <option *ngFor="let community of communities" [value]="community.code">
+        {{ community.name }}
+      </option>
     </select>
   </div>
   <button class="btn" type="submit">Guardar</button>
