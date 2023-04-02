@@ -6,6 +6,8 @@ import {
   faCow, faBowlFood
 } from '@fortawesome/free-solid-svg-icons';
 import { Feeding } from 'src/app/models/feeding';
+import { UserService } from 'src/app/services/user.service';
+import { FeedingService } from '../../services/feeding.service';
 
 @Component({
   selector: 'app-feeding',
@@ -21,38 +23,30 @@ export class FeedingComponent {
   faCow = faCow;
   faFood = faBowlFood;
 
-  feedings: Feeding[] = [
-    {
-      leftBreast: `00:04`,
-      rightBreast: `00:03`,
-      total: `00:07`,
-      bottle: 160,
-      solid: 50,
-      date: new Date()
-    },
-    {
-      leftBreast: `07:04`,
-      rightBreast: `02:00`,
-      total: `09:04`,
-      bottle: 240,
-      solid: 45,
-      date: new Date('2023-03-20T08:35:45')
-    },
-    {
-      leftBreast:  `00:06`,
-      rightBreast: `01:05`,
-      total: `01:11`,
-      bottle: 200,
-      solid: 60,
-      date: new Date('2023-03-17T15:30:45')
-    },
-    {
-      leftBreast:  "",
-      rightBreast: "",
-      total: "",
-      bottle: 350,
-      solid: 50,
-      date: new Date('2023-03-16T10:30:45')
-    },
-  ];
+  feedings: Feeding[] = [];
+  babyId: string;
+  totalTime: string | null = null;
+
+  constructor(public userService: UserService, public feedingService: FeedingService) {
+    this.babyId = this.userService.getBabyId();
+    this.feedingService.getAllFeedings(this.babyId).subscribe({
+      next: (response: { message: Feeding[] }) => {
+
+        if (response) {
+          this.feedings = response.message;
+
+          for (const feed of this.feedings) {
+            if (feed.timeLeftBreast || feed.timeRightBreast) {
+              this.totalTime = this.feedingService.calculateBreastfeedingTime(feed);
+            } else (feed.timeLeftBreast = '00:00', feed.timeRightBreast = '00:00');
+          }
+        }
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+
 }
+

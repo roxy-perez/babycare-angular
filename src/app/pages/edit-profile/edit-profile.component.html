@@ -5,52 +5,27 @@
         <h1 class="title"><span>E</span> dita tu perfil</h1>
       </div>
       <div class="lx-row align-stretch">
-        <!--  <div class="lx-column column-user-pic">
-          <div class="profile-pic bs-md">
-            <h1 class="pic-label">Foto del bebé</h1>
-            <div class="pic bs-md">
-              <img src="../../../assets/img/cute-baby-born.jpg"alt="" width="4024" height="6048" loading="lazy">
-              <a id="change-avatar" class="lx-btn"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Cambia la foto de tu bebé.</a>
-            </div>
-          </div>
-        </div> -->
         <div class="lx-column">
-          <form action="get">
+          <form action="get" (ngSubmit)="onSave()" ngNativeValidate>
             <div class="input-group">
               <span class="icon"><i class="fas fa-user"></i></span>
-              <input
-                type="text"
-                id="user-name"
-                value="Siri"
-                autocomplete="username"
-                required
-              />
+              <input type="text" name="username" placeholder="Nombre de usuario" autocomplete="username" [(ngModel)]="username" />
             </div>
             <div class="input-group">
               <span class="icon"><i class="fas fa-baby-card"></i></span>
-              <input type="text" id="baby_name" value="Alexa" required />
+              <input type="text" name="babyName" placeholder="Nombre del bebé" [(ngModel)]="babyName"/>
             </div>
             <div class="input-group">
               <span class="icon"><i class="fas fa-envelope"></i></span>
-              <input type="email" id="email" value="lorem@ipsum.com" readonly />
+              <input type="email" name="email" placeholder="Correo electrónico" style="background-color: #a29c9d; color: rgb(216, 208, 208);"  [(ngModel)]="email" readonly/>
             </div>
             <div class="input-group">
               <span class="icon"><i class="fas fa-key"></i></span>
-              <input
-                type="password"
-                id="pass"
-                value="pass123*"
-                autocomplete="current-password"
-              />
+              <input type="password" name="currentPassword" placeholder="Password actual" autocomplete="currentPassword" [(ngModel)]="currentPassword"/>
             </div>
             <div class="input-group">
               <span class="icon"><i class="fas fa-key"></i></span>
-              <input
-                type="password"
-                id="confirm-pass"
-                value="pass123*"
-                autocomplete="confirm-password"
-              />
+              <input type="password" name="newPassword" placeholder="Nuevo password" autocomplete="newPassword" [(ngModel)]="newPassword"/>
             </div>
             <button class="btn" type="submit">Guardar</button>
           </form>
@@ -60,9 +35,5 @@
   </section>
 </main>
 
-<script
-  src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
-  defer
-  crossorigin="anonymous"
-  data-search-pseudo-elements
-></script>
+<script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" defer crossorigin="anonymous"
+  data-search-pseudo-elements></script>

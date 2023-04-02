@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { User } from '../models/user';
@@ -14,6 +14,37 @@ export class UserService {
 
   constructor(public http: HttpClient, public router: Router) {
     this.user = this.getSession();
+  }
+
+  register(user: User): Observable<User> {
+    const baby = {
+      name: user.Baby.name,
+      birthday: user.Baby.birthday,
+      communityCode: user.Baby.communityCode
+    };
+    const userData = {
+      username: user.username,
+      email: user.email,
+      password: user.password,
+      baby
+    };
+    return this.http.post<User>(`${this.apiUrl}/register`, userData);
+  }
+
+  editProfile(username: string, name: string, email: string, password: string, newPassword: string): Observable<Object> {
+    const url = `${this.apiUrl}/edit-profile`;
+    const body = { username, name, email, password, newPassword };
+    return this.http.put(url, body)
+      .pipe(
+        tap({
+          next: (updatedUser) => {
+            console.log('User updated:', updatedUser);
+          },
+          error: (error) => {
+            console.error('Error updating user:', error);
+          }
+        })
+      );
   }
 
   login(email: string, password: string): Observable<Object> {
@@ -46,4 +77,9 @@ export class UserService {
     localStorage.removeItem('user');
     this.router.navigateByUrl('/front');
   }
+
+  getAllCommunities(): Observable<Object> {
+    return this.http.get(`${this.apiUrl}/communities`, {});
+  }
+
 }

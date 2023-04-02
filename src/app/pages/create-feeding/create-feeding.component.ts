@@ -10,6 +10,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Feeding } from 'src/app/models/feeding';
 import { Router } from '@angular/router';
+import { FeedingService } from 'src/app/services/feeding.service';
+import { UserService } from 'src/app/services/user.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-create-feeding',
@@ -24,16 +27,17 @@ export class CreateFeedingComponent {
   faArrowRotateBackward = faArrowRotateBackward;
   faFood = faBowlFood;
 
+  type: string;
   solid: number;
   bottle: number;
 
-  leftBreast: string = '00:00';
-
-  rightBreast: string = '00:00';
+  timeLeftBreast: string = null;
+  timeRightBreast: string = null;
 
   total: string = '00:00';
   isRunningLeft: boolean = false;
   isRunningRight: boolean = false;
+  isBreastTimerRunning = false;
   intervalLeft: any;
   intervalRight: any;
   startTimeLeft: number;
@@ -41,24 +45,84 @@ export class CreateFeedingComponent {
   elapsedTimeLeft: number = 0;
   elapsedTimeRight: number = 0;
 
-  constructor(public router: Router) {}
+  saveEnabled: boolean = false;
 
-  create(form: NgForm) {
-    const date = new Date();
-    const feed: Feeding = {
-      ...form.value,
-      date,
-    };
-    console.log(feed);
-    this.router.navigateByUrl('/feeding');
+  constructor(public router: Router,
+    public feedingService: FeedingService,
+    public userService: UserService,
+    public toastService: ToastService) { }
+
+  submitForm(form) {
+    //Validaciones
+    if (this.type === 'BOTTLE') {
+      if (form.value.amountBottle == null) {
+        this.toastService.warning('Debe rellenar los datos');
+        return;
+      }
+    }
+
+    if (this.type === 'SOLIDS') {
+      if (form.value.amountSolids == null) {
+        this.toastService.warning('Debe rellenar los datos');
+        return;
+      }
+    }
+
+    if (this.type != 'BREASTFEEDING' || this.saveEnabled) {
+      const date = new Date();
+      const feeding: Feeding = {
+        ...form.value,
+        date,
+        babyId: this.userService.getBabyId(),
+        timeLeftBreast: this.timeLeftBreast,
+        timeRightBreast: this.timeRightBreast
+      };
+      console.log(feeding);
+
+      this.feedingService.createFeeding(feeding).subscribe({
+        next: (response: { message: Feeding }) => {
+          console.log(response.message);
+          if (feeding) {
+            this.toastService.success('Guardado correctamente');
+          }
+          return true;
+        },
+        complete: () => {
+          this.resetForm();
+          this.router.navigateByUrl('/feeding');
+        },
+        error: (error: Error) => {
+          const errorMessage = error.message;
+          this.toastService.error(errorMessage);
+          return false;
+        },
+      });
+    } else {
+      this.toastService.warning('Debe cronometrar ambos');
+      return;
+    }
+  }
+
+  resetForm() {
+    this.timeLeftBreast = null;
+    this.timeRightBreast = null;
+    this.total = '00:00';
+    this.isBreastTimerRunning = false;
+    this.isRunningLeft = false;
+    this.isRunningRight = false;
+    clearInterval(this.intervalLeft);
+    clearInterval(this.intervalRight);
+    this.elapsedTimeLeft = 0;
+    this.elapsedTimeRight = 0;
   }
 
   startTimer(breast: string) {
+    this.isBreastTimerRunning = true;
     if (breast === 'left') {
       this.startTimeLeft = Date.now() - this.elapsedTimeLeft;
       this.intervalLeft = setInterval(() => {
         this.elapsedTimeLeft = Date.now() - this.startTimeLeft;
-        this.leftBreast = this.formatTime(this.elapsedTimeLeft);
+        this.timeLeftBreast = this.formatTime(this.elapsedTimeLeft);
         this.total = this.formatTime(
           this.elapsedTimeLeft + this.elapsedTimeRight
         );
@@ -69,7 +133,7 @@ export class CreateFeedingComponent {
       this.intervalRight = setInterval(() => {
         this.elapsedTimeRight = Date.now() - this.startTimeRight;
 
-        this.rightBreast = this.formatTime(this.elapsedTimeRight);
+        this.timeRightBreast = this.formatTime(this.elapsedTimeRight);
 
         this.total = this.formatTime(
           this.elapsedTimeLeft + this.elapsedTimeRight
@@ -83,22 +147,18 @@ export class CreateFeedingComponent {
     if (this.isRunningLeft) {
       clearInterval(this.intervalLeft);
       this.isRunningLeft = false;
+      this.isBreastTimerRunning = false;
     } else if (this.isRunningRight) {
       clearInterval(this.intervalRight);
       this.isRunningRight = false;
+      this.isBreastTimerRunning = false;
     }
-  }
 
-  resetTimer() {
-    clearInterval(this.intervalLeft);
-    clearInterval(this.intervalRight);
-    this.leftBreast = '00:00';
-    this.rightBreast = '00:00';
-    this.total = '00:00';
-    this.elapsedTimeLeft = 0;
-    this.elapsedTimeRight = 0;
-    this.isRunningLeft = false;
-    this.isRunningRight = false;
+    if (this.type == 'BREASTFEEDING' && this.timeLeftBreast && this.timeRightBreast) {
+      this.saveEnabled = true;
+    } else {
+      this.saveEnabled = false;
+    }
   }
 
   formatTime(milliseconds: number): string {

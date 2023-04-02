@@ -1,21 +1,26 @@
 <main class="container">
   <p><span>A</span> limentación</p>
+  <div *ngIf="feedings.length==0" class="feeding" style="height: 20%; text-align: center; padding-top: 1em;">
+    No existen registros anteriores.
+  </div>
   <div class="feeding" *ngFor="let feeding of feedings">
-    <div class="date">{{ feeding.date | dateFormat }}</div>
-    <div class="breasts">
-      <div><span>Izquierdo: </span>{{ feeding.leftBreast }}</div>
-      <div><span>Derecho: </span>{{ feeding.rightBreast }}</div>
+    <div class="date">{{ feeding.createdAt | dateFormat }}</div>
+    <div class="breasts" *ngIf="feeding.timeLeftBreast!='00:00' || feeding.timeRightBreast!='00:00' ">
+      <div><span>Izquierdo: </span>{{ feeding.timeLeftBreast }}</div>
+      <div><span>Derecho: </span>{{ feeding.timeRightBreast }}</div>
     </div>
-    <div class="total"><span>Total: </span>{{ feeding.total }}</div>
-    <div class="otherFeed">
-      <div>
-        <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" nIf="feeding.bottle">
-        {{ feeding.bottle }} ml
+    <div class="total" *ngIf="feeding.timeLeftBreast!=='00:00' && feeding.timeRightBreast!=='00:00'"><span>Total:
+      </span>{{ totalTime }}</div>
+    <div class="otherFeedings">
+      <div class="bottle" *ngIf="feeding.amountBottle">
+        <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg">
+        {{ feeding.amountBottle }} ml
       </div>
-      <div>
-        <fa-icon [icon]="faFood" size="2x" class="faFood" nIf="feeding.solid"></fa-icon>
-        {{ feeding.solid }} g.
+      <div class="food" *ngIf="feeding.amountSolids">
+        <fa-icon [icon]="faFood" size="2x" class="faFood"></fa-icon>
+        {{ feeding.amountSolids }} g.
       </div>
     </div>
   </div>
+
 </main>
