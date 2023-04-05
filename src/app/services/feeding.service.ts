@@ -20,8 +20,20 @@ export class FeedingService {
     return this.http.get<ApiResponse>(`${this.feedingUrl}/${babyId}`);
   }
 
+  getOneFeeding(babyId: string, id: number): Observable<Object> {
+    return this.http.get(`${this.feedingUrl}/${babyId}/${id}`);
+  }
+
   createFeeding(feedingData: Feeding): Observable<Object> {
     return this.http.post<ApiResponse>(this.feedingUrl, feedingData);
+  }
+
+  updateFeeding(id: number, feeding: Object): Observable<Object> {
+    return this.http.put(`${this.feedingUrl}/${id}`, feeding);
+  }
+
+  deleteFeeding(id: number): Observable<Object> {
+    return this.http.delete(`${this.feedingUrl}/${id}`);
   }
 
   calculateBreastfeedingTime(feed: Feeding): string {
@@ -35,10 +47,9 @@ export class FeedingService {
     const totalMinutes = leftMinutes + rightMinutes;
     const totalSeconds = leftSeconds + rightSeconds;
 
-    console.log(totalSeconds);
-
     totalTime = `${totalMinutes} minutos y ${totalSeconds} segundos`;
 
     return totalTime;
   }
+
 }

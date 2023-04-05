@@ -1,0 +1,167 @@
+@import '../../../styles/styles.scss';
+
+.container {
+  @include router-content;
+  padding: 6em 1em;
+  font-family: $ff-subtitle;
+  font-weight: $fw-medium;
+  font-size: medium;
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+  color: $dark-gray;
+
+
+  .date {
+    margin: 2em 2em;
+    color: $dark-gray;
+    font-family: $ff-subtitle;
+    font-size: 1.3rem;
+    font-weight: $fw-medium;
+    line-height: 1rem;
+    text-align: center;
+  }
+}
+
+
+.grid-container {
+  padding-top: .4em;
+  border-radius: 20px;
+  height: 15em;
+  background: rgba(89, 217, 97, .6);
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+
+  .grid-item {
+    @include flex-center-container(row);
+    justify-content: center;
+    color: $white;
+
+    button {
+      background-color: gray;
+      border-radius: 50%;
+      border: none;
+      color: white;
+    }
+
+    &.total {
+      font-size: 1.2rem;
+      background-color: rgba(82, 5, 19, 0.1);
+      border-end-end-radius: 20px;
+      border-bottom-left-radius: 20px;
+
+      input {
+        border: none;
+      }
+
+      .time {
+        color: $dark-gray;
+      }
+    }
+
+    h3 {
+      color: $red;
+    }
+  }
+}
+
+.bottle {
+  margin-top: .7em;
+  @include flex-center-container(column);
+  background: rgba(89, 217, 97, .6);
+  height: 80px;
+  border-radius: 20px;
+  color: $white;
+
+  .bottle-edit {
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 1em;
+    height: 100px;
+
+    img {
+      filter: invert(100%);
+      width: 50px;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.solids {
+  height: 80px;
+  padding-bottom: .7em;
+  border-radius: 20px;
+  background: rgba(89, 217, 97, .6);
+  color: $white;
+  margin-top: .7em;
+  @include flex-center-container(column);
+  justify-content: center;
+
+  .solids-edit {
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-align: center;
+    height: 40px;
+  }
+
+}
+
+input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid rgba(82, 5, 19, 0.1);
+  background: none;
+  width: 4em;
+  margin: 0 1em;
+
+  text-align: center;
+  color: $white;
+  font-family: $ff-subtitle2;
+  font-size: 1.4rem;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:focus,
+  [placeholder]:focus::-webkit-input-placeholder {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid rgba(82, 5, 19, 0.1);
+    color: $white;
+
+  }
+}
+
+span {
+  color: $red;
+  font-family: $ff-subtitle;
+  font-weight: $fw-bold;
+  font-size: 1.3rem;
+}
+
+.form-btn {
+  @include flex-center-container(column);
+  justify-content: center;
+  margin: .5em auto;
+
+  button {
+    margin: .2em auto;
+    @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
+    text-align: center;
+    font-family: $ff-subtitle;
+    width: 70%;
+  }
+}

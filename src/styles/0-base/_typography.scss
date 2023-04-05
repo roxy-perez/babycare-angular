@@ -4,16 +4,23 @@ $ff-title: 'Barbar',
 sans-serif;
 $ff-subtitle: 'Josefin Sans',
 sans-serif;
+$ff-subtitle2: 'Fira Mono', monospace;
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
 @font-face {
   src: url('../../assets/font/JosefinSans-Regular.ttf');
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 @font-face {
   src: url('../../assets/font/BARBAR.otf');
   font-family: 'BARBAR';
+}
+
+
+@font-face {
+  src: url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
+  font-family: 'Fira Mono', monospace;
 }

@@ -1,0 +1,45 @@
+<form class="container" #feedingForm="ngForm" (ngSubmit)="update(feedingForm)" ngNativeValidate>
+  <div>
+    <div class="date">{{ createdAt | dateFormat }}</div>
+  </div>
+  <div class="grid-container" *ngIf="type=='BREASTFEEDING'">
+    <div class="grid-item">
+      <span>I</span>
+      <input name="timeLeftBreast" [(ngModel)]="timeLeftBreast" [ngModelOptions]="{standalone: true}"
+        #timeLeftBreastInput />
+      <button type="button" (click)="timeLeftBreastInput.value = ''">
+        <fa-icon [icon]="faXmark" class="faXmark"></fa-icon>
+      </button>
+    </div>
+    <div class="grid-item">
+      <span>D</span>
+      <input name="timeRightBreast" [(ngModel)]="timeRightBreast" [ngModelOptions]="{standalone: true}"
+        #timeRightBreastInput />
+      <button type="button" (click)="timeRightBreastInput.value = ''">
+        <fa-icon [icon]="faXmark" class="faXmark"></fa-icon>
+      </button>
+    </div>
+    <div class="grid-item total">
+      <h3 class="time">Total:</h3>
+      <input class="total-time" name="total" [(ngModel)]="total" readonly />
+    </div>
+  </div>
+  <div class="bottle" *ngIf="type=='BOTTLE'">
+    <div class="bottle-edit">
+      <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" alt="Logo" />
+      <input class="bottle-amount" type="number" placeholder="0" name="amountBottle" [(ngModel)]="amountBottle" />
+      <h3 class="bottle-measure">ml.</h3>
+    </div>
+  </div>
+  <div class="solids" *ngIf="type=='SOLIDS'">
+    <div class="solids-edit">
+      <fa-icon [icon]="faFood" size="2x"></fa-icon>
+      <input class="solids-amount" type="number" name="amountSolids" placeholder="0" [(ngModel)]="amountSolids" />
+      <h3>g.</h3>
+    </div>
+  </div>
+  <div class="form-btn">
+    <button class="form-btn" type="submit" required>Guardar</button>
+    <button class="form-btn" type="button" (click)="delete()">Eliminar</button>
+  </div>
+</form>

@@ -7,5 +7,5 @@ export class Feeding {
   type: string;
   createdAt: Date;
   babyId: string;
-  totalTime: string | null;
+  total?: string | null;
 }
