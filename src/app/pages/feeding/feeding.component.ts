@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import {
-  faPersonBreastfeeding,
-  faPlay, faStop,
-  faPause, faArrowRotateBackward,
-  faCow, faBowlFood
+  faPlay, faStop, faPause, faArrowRotateBackward, faBowlFood
 } from '@fortawesome/free-solid-svg-icons';
 import { Feeding } from 'src/app/models/feeding';
 import { UserService } from 'src/app/services/user.service';
 import { FeedingService } from '../../services/feeding.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feeding',
@@ -15,30 +13,34 @@ import { FeedingService } from '../../services/feeding.service';
   styleUrls: ['./feeding.component.scss']
 })
 export class FeedingComponent {
-  faBreastfeeding = faPersonBreastfeeding;
   faPlay = faPlay;
   faPause = faPause;
   faStop = faStop;
   faArrowRotateBackward = faArrowRotateBackward;
-  faCow = faCow;
   faFood = faBowlFood;
 
   feedings: Feeding[] = [];
   babyId: string;
-  totalTime: string | null = null;
+  total: string | null = null;
 
-  constructor(public userService: UserService, public feedingService: FeedingService) {
+  constructor(public userService: UserService, public feedingService: FeedingService, public router: Router) {
     this.babyId = this.userService.getBabyId();
     this.feedingService.getAllFeedings(this.babyId).subscribe({
       next: (response: { message: Feeding[] }) => {
 
         if (response) {
           this.feedings = response.message;
+          console.log(this.feedings)
 
           for (const feed of this.feedings) {
             if (feed.timeLeftBreast || feed.timeRightBreast) {
-              this.totalTime = this.feedingService.calculateBreastfeedingTime(feed);
-            } else (feed.timeLeftBreast = '00:00', feed.timeRightBreast = '00:00');
+              feed.total = this.feedingService.calculateBreastfeedingTime(feed);
+              console.log(feed.total)
+            } else {
+              feed.timeLeftBreast = '00:00';
+              feed.timeRightBreast = '00:00';
+              feed.total = '00:00';
+            }
           }
         }
       },
@@ -48,5 +50,8 @@ export class FeedingComponent {
     });
   }
 
+  show(id: string) {
+    this.router.navigateByUrl(`/feeding/show/${id}`);
+  }
 }
 

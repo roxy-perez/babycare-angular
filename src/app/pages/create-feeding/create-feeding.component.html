@@ -3,9 +3,9 @@
     Selecciona un tipo de alimentación:
     <select class="select-css" [(ngModel)]="type" name="type" required>
       <option value=""> -- &#8595; -- </option>
-      <option value="BREASTFEEDING">Breastfeeding</option>
-      <option value="BOTTLE">Bottle</option>
-      <option value="SOLIDS">Solids</option>
+      <option value="BREASTFEEDING">Pecho</option>
+      <option value="BOTTLE">Biberón</option>
+      <option value="SOLIDS">Sólidos</option>
     </select>
   </label>
   <div class="grid-container" *ngIf="type=='BREASTFEEDING'">
@@ -17,24 +17,26 @@
     </div>
     <div class="grid-item">
       <button class="btn" (click)="startTimer('left')" [disabled]="isRunningLeft || isBreastTimerRunning">
-        Izquierda
+        Izquierdo
       </button>
-      <input name="timeLeftBreast" [(ngModel)]="timeLeftBreast" [ngModelOptions]="{standalone: true}"  placeholder="00:00"/>
+      <input name="timeLeftBreast" [(ngModel)]="timeLeftBreast" [ngModelOptions]="{standalone: true}"
+        placeholder="00:00" />
     </div>
     <div class="grid-item">
-      <button class="btn"  (click)="startTimer('right')" [disabled]="isRunningRight || isBreastTimerRunning">
-        Derecha
+      <button class="btn" (click)="startTimer('right')" [disabled]="isRunningRight || isBreastTimerRunning">
+        Derecho
       </button>
-      <input name="timeRightBreast" [(ngModel)]="timeRightBreast" [ngModelOptions]="{standalone: true}"  placeholder="00:00"/>
+      <input name="timeRightBreast" [(ngModel)]="timeRightBreast" [ngModelOptions]="{standalone: true}"
+        placeholder="00:00" />
     </div>
     <div class="grid-item total">
-      <h3 class="time">Total</h3>
+      <h3 class="time">Total:</h3>
+      <input class="total-time" name="total" [(ngModel)]="total" readonly />
     </div>
     <div class="grid-item">
       <button class="stop" (click)="stopTimer();" type="button">
         <fa-icon [icon]="faStop" class="faStop"></fa-icon>
       </button>
-      <input class="total-time" name="total" [(ngModel)]="total" readonly />
       <button class="reset" (click)="resetForm();" type="button">
         <fa-icon [icon]="faArrowRotateBackward" class="faArrow"></fa-icon>
       </button>

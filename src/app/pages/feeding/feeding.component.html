@@ -3,14 +3,14 @@
   <div *ngIf="feedings.length==0" class="feeding" style="height: 20%; text-align: center; padding-top: 1em;">
     No existen registros anteriores.
   </div>
-  <div class="feeding" *ngFor="let feeding of feedings">
+  <div class="feeding" *ngFor="let feeding of feedings" (click)="show(feeding.id)">
     <div class="date">{{ feeding.createdAt | dateFormat }}</div>
     <div class="breasts" *ngIf="feeding.timeLeftBreast!='00:00' || feeding.timeRightBreast!='00:00' ">
-      <div><span>Izquierdo: </span>{{ feeding.timeLeftBreast }}</div>
-      <div><span>Derecho: </span>{{ feeding.timeRightBreast }}</div>
+      <div *ngIf="feeding.timeLeftBreast"><span>Izquierdo: </span>{{ feeding.timeLeftBreast }}</div>
+      <div feeding.timeRightBreast ><span>Derecho: </span>{{ feeding.timeRightBreast }}</div>
     </div>
     <div class="total" *ngIf="feeding.timeLeftBreast!=='00:00' && feeding.timeRightBreast!=='00:00'"><span>Total:
-      </span>{{ totalTime }}</div>
+      </span>{{ feeding.total }}</div>
     <div class="otherFeedings">
       <div class="bottle" *ngIf="feeding.amountBottle">
         <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg">

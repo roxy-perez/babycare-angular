@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {
-  faPersonBreastfeeding,
-  faPlay,
-  faStop,
-  faPause,
-  faArrowRotateBackward,
-  faBowlFood,
+  faPersonBreastfeeding, faPlay, faStop,
+  faPause, faArrowRotateBackward, faBowlFood,
 } from '@fortawesome/free-solid-svg-icons';
 import { Feeding } from 'src/app/models/feeding';
 import { Router } from '@angular/router';
@@ -97,9 +93,6 @@ export class CreateFeedingComponent {
           return false;
         },
       });
-    } else {
-      this.toastService.warning('Debe cronometrar ambos');
-      return;
     }
   }
 
@@ -154,7 +147,7 @@ export class CreateFeedingComponent {
       this.isBreastTimerRunning = false;
     }
 
-    if (this.type == 'BREASTFEEDING' && this.timeLeftBreast && this.timeRightBreast) {
+    if (this.type == 'BREASTFEEDING' && this.timeLeftBreast || this.timeRightBreast) {
       this.saveEnabled = true;
     } else {
       this.saveEnabled = false;
