@@ -1,5 +1,8 @@
 <div class="container">
   <h2 class="title"><span>D</span> eposiciones</h2>
+  <div *ngIf="!poos || poos.length === 0" class="no-content">
+    No existen registros anteriores
+  </div>
   <div class="poo" *ngFor="let poo of poos" (click)="show(poo.id)">
     <div [class]="poo.color.toLowerCase()"></div>
     <div>{{ poo.consistency | translate | titlecase }}</div>

@@ -49,3 +49,15 @@
 .green {
     background-color: #5A9F20;
 }
+
+.no-content {
+    height: 80px;
+    line-height: 80px;
+    width: 90%;
+    text-align: center;
+    font-family: $ff-subtitle;
+    font-size: 1.3rem !important;
+    background-color: #FDF2C9;
+    color: #000;
+    border-radius: 10px;
+} 

@@ -1,19 +1,39 @@
 <main class="container">
   <p><span>A</span> limentación</p>
-  <div *ngIf="feedings.length==0" class="feeding" style="height: 20%; text-align: center; padding-top: 1em;">
-    No existen registros anteriores.
+  <div *ngIf="feedings.length == 0" class="no-content">
+    No existen registros anteriores
   </div>
-  <div class="feeding" *ngFor="let feeding of feedings" (click)="show(feeding.id)">
+  <div
+    class="feeding"
+    *ngFor="let feeding of feedings"
+    (click)="show(feeding.id)"
+  >
     <div class="date">{{ feeding.createdAt | dateFormat }}</div>
-    <div class="breasts" *ngIf="feeding.timeLeftBreast!='00:00' || feeding.timeRightBreast!='00:00' ">
-      <div *ngIf="feeding.timeLeftBreast"><span>Izquierdo: </span>{{ feeding.timeLeftBreast }}</div>
-      <div feeding.timeRightBreast ><span>Derecho: </span>{{ feeding.timeRightBreast }}</div>
+    <div
+      class="breasts"
+      *ngIf="
+        feeding.timeLeftBreast != '00:00' || feeding.timeRightBreast != '00:00'
+      "
+    >
+      <div *ngIf="feeding.timeLeftBreast">
+        <span>Izquierdo: </span>{{ feeding.timeLeftBreast }}
+      </div>
+      <div feeding.timeRightBreast>
+        <span>Derecho: </span>{{ feeding.timeRightBreast }}
+      </div>
     </div>
-    <div class="total" *ngIf="feeding.timeLeftBreast!=='00:00' && feeding.timeRightBreast!=='00:00'"><span>Total:
-      </span>{{ feeding.total }}</div>
+    <div
+      class="total"
+      *ngIf="
+        feeding.timeLeftBreast !== '00:00' &&
+        feeding.timeRightBreast !== '00:00'
+      "
+    >
+      <span>Total: </span>{{ feeding.total }}
+    </div>
     <div class="otherFeedings">
       <div class="bottle" *ngIf="feeding.amountBottle">
-        <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg">
+        <img src="../../../assets/img/feeding-bottle-svgrepo-com.svg" />
         {{ feeding.amountBottle }} ml
       </div>
       <div class="food" *ngIf="feeding.amountSolids">
@@ -22,5 +42,4 @@
       </div>
     </div>
   </div>
-
 </main>
