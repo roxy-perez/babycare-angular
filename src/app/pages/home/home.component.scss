@@ -1,7 +1,7 @@
 @import '../../../styles/styles.scss';
 .container {
     @include router-content;
-    font-family: $ff-subtitle2;
+    font-family: $ff-subtitle;
 }
 
 .baby-data {

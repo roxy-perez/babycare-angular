@@ -1,5 +1,8 @@
 <div class="container">
   <h2 class="title"><span>C</span> itas</h2>
+  <div *ngIf="!appointments || appointments.length === 0" class="no-content">
+    Sin citas pendientes
+  </div>
   <div
     class="appointment"
     *ngFor="let appointment of appointments"
