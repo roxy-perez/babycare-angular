@@ -8,24 +8,28 @@
         <div class="lx-column">
           <form action="get" (ngSubmit)="onSave()" ngNativeValidate>
             <div class="input-group">
-              <span class="icon"><i class="fas fa-user"></i></span>
-              <input type="text" name="username" placeholder="Nombre de usuario" autocomplete="username" [(ngModel)]="username" />
+              <span class="icon"><i class="fas fa-baby-card"></i></span>
+              <input type="text" name="babyName" placeholder="Nombre del bebé" [(ngModel)]="babyName" />
             </div>
             <div class="input-group">
-              <span class="icon"><i class="fas fa-baby-card"></i></span>
-              <input type="text" name="babyName" placeholder="Nombre del bebé" [(ngModel)]="babyName"/>
+              <span class="icon"><i class="fas fa-user"></i></span>
+              <input type="text" name="username" placeholder="Nombre de usuario" autocomplete="username"
+                [(ngModel)]="username" />
             </div>
             <div class="input-group">
               <span class="icon"><i class="fas fa-envelope"></i></span>
-              <input type="email" name="email" placeholder="Correo electrónico" style="background-color: #a29c9d; color: rgb(216, 208, 208);"  [(ngModel)]="email" readonly/>
+              <input type="email" name="email" placeholder="Correo electrónico"
+                style="background-color: #a29c9d; color: rgb(216, 208, 208);" [(ngModel)]="email" readonly />
             </div>
             <div class="input-group">
               <span class="icon"><i class="fas fa-key"></i></span>
-              <input type="password" name="currentPassword" placeholder="Password actual" autocomplete="currentPassword" [(ngModel)]="currentPassword"/>
+              <input type="password" name="currentPassword" placeholder="Contraseña actual"
+                autocomplete="currentPassword" [(ngModel)]="currentPassword" />
             </div>
             <div class="input-group">
               <span class="icon"><i class="fas fa-key"></i></span>
-              <input type="password" name="newPassword" placeholder="Nuevo password" autocomplete="newPassword" [(ngModel)]="newPassword"/>
+              <input type="password" name="newPassword" placeholder="Nueva contraseña" autocomplete="newPassword"
+                [(ngModel)]="newPassword" />
             </div>
             <button class="btn" type="submit">Guardar</button>
           </form>
