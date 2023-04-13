@@ -4,66 +4,119 @@
   @include flex-center-container(column);
   justify-content: center;
   background-color: rgba(48, 168, 242, .5);
-  height: 100vh;
-  width: 100vw;
-  padding: 0.5em 0.8em;
+  min-height: 100vh;
+  padding: 1.5em;
   overflow: hidden;
-  position: fixed;
 
   .image {
     height: 300px;
     max-width: 90%;
     overflow: hidden;
-    padding-right: 1em;
   }
 
-  .cta-buttons {
-    @include flex-center-container(column);
-    gap: 15px;
-    button {
-      width: 100% !important;
-      &.signup-btn {
-        @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
-        text-align: center;
-        font-family: $ff-subtitle;
-      }
+  main {
+    margin: 0 auto;
 
-      &.signin-btn {
-        @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
-        text-align: center;
-        font-family: $ff-subtitle;
+    h1 {
+      font-size: 5rem;
+      font-family: $ff-title;
+      font-weight: $fw-bold;
+      text-align: center;
+      line-height: 1.6em;
+      color: $yellow;
+      margin-top: -0.7em;
+      margin-bottom: 0.2em;
+      @include text-white-shadow;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      font-family: $ff-subtitle;
+      font-weight: $fw-medium;
+      text-align: center;
+      color: $white;
+      padding: .2em;
+    }
+
+    .cta-buttons {
+      @include flex-center-container(column);
+      gap: 15px;
+      width: 100%;
+      
+      button{
+
+        &.signup-btn {
+          @include btn-no-shadow($blue, $white, rgba(33, 99, 219, .3));
+          margin: 0 auto;
+          width: 100%;
+          text-align: center;
+          font-family: $ff-subtitle;
+        }
+
+        &.signin-btn {
+          margin: 0 auto;
+          @include btn-no-shadow($red, $white, rgba(82, 5, 19, 0.1));
+          width: 100%;
+          font-family: $ff-subtitle;
+        }
+
       }
     }
   }
 }
 
-main {
-  margin: 0 auto;
-
-  h1 {
-    font-size: 6rem;
-    font-family: $ff-title;
-    font-weight: $fw-bold;
-    text-align: center;
-    line-height: 1.6em;
-    color: $yellow;
-    margin-top: -0.7em;
-    margin-bottom: 0.2em;
-    @include text-white-shadow;
+@media screen and (max-width: 768px) {
+  .container {
+    min-height: 100vh;
+    padding: 1em;
   }
 
-  h2 {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    font-family: $ff-subtitle;
-    font-weight: $fw-medium;
-    text-align: center;
-    color: $white;
-    padding: .2em;
+  main {
+    h1 {
+      font-size: 4rem;
+    }
 
-    span {
-      font-family: $ff-title;
-      font-weight: $fw-medium;
+    &.cta-buttons {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
     }
   }
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .image {
+    height: 200px;
+    padding-right: 0;
+  }
+
+  main {
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+    }
+
+  }
+
+
 }
