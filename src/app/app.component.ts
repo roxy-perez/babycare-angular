@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'Baby-Care';
   backgroundColor = '#FFF';
 
-  constructor(private router: Router, public userService: UserService) {}
+  constructor(private router: Router, public userService: UserService) { }
 
   ngOnInit() {
     this.selectBackgroundColor();
@@ -43,12 +43,15 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         switch (this.router.url) {
+          case '/front':
+            this.backgroundColor = 'rgba(48, 168, 242, .5)';
+            break;
           case '/home':
             this.backgroundColor = '#808BF5';
             break;
           case '/feeding':
           case '/feeding/create':
-            case this.router.url.match(/^\/feeding\/show\/.*/)?.[0]:
+          case this.router.url.match(/^\/feeding\/show\/.*/)?.[0]:
             this.backgroundColor = '#ABEBAF';
             break;
           case '/poo':
