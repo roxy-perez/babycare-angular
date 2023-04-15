@@ -17,7 +17,19 @@
     placeholder="Detalles"
     [(ngModel)]="details"
   ></textarea>
-  <input type="date" name="date" [(ngModel)]="date" required />
-  <input type="time" name="time" [(ngModel)]="time" required />
+  <input
+    [placeholder]="placeholderDate"
+    type="date"
+    name="date"
+    [(ngModel)]="date"
+    required
+  />
+  <input
+    [placeholder]="placeholderTime"
+    type="time"
+    name="time"
+    [(ngModel)]="time"
+    required
+  />
   <button class="form-btn">Guardar</button>
 </form>

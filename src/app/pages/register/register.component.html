@@ -7,29 +7,68 @@
   <h2 class="title"><span>R</span> egistro del bebé</h2>
   <div class="input-group" tabindex="0">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="text" id="username" placeholder="Usuario" name="username" [(ngModel)]="user.username" required />
+    <input
+      type="text"
+      id="username"
+      placeholder="Usuario"
+      name="username"
+      [(ngModel)]="user.username"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="text" placeholder="Nombre del bebé" name="name" [(ngModel)]="user.Baby.name" required />
+    <input
+      type="text"
+      placeholder="Nombre del bebé"
+      name="name"
+      [(ngModel)]="user.Baby.name"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="date" class="date" id="birthday" placeholder="F. nacimiento" name="birthday"
-      [(ngModel)]="user.Baby.birthday" required />
+    <input
+      type="date"
+      class="date"
+      id="birthday"
+      [placeholder]="placeholderDate"
+      name="birthday"
+      [(ngModel)]="user.Baby.birthday"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="email" id="email" placeholder="Correo electrónico" name="email" [(ngModel)]="user.email" required />
+    <input
+      type="email"
+      id="email"
+      placeholder="Correo electrónico"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <input type="password" id="password" placeholder="Password" name="password" [(ngModel)]="user.password" required />
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+    />
   </div>
   <div class="input-group">
     <span class="icon"><i class="fas fa-envelope"></i></span>
-    <select id="community" class="select-css" name="communityCode" [(ngModel)]="user.Baby.communityCode">
-      <option selected disabled>Comunidad autónoma</option>
+    <select
+      id="community"
+      class="select-css"
+      name="communityCode"
+      [(ngModel)]="user.Baby.communityCode"
+    >
+      <option [ngValue]="null" selected disabled>Comunidad autónoma</option>
       <option *ngFor="let community of communities" [value]="community.code">
         {{ community.name }}
       </option>

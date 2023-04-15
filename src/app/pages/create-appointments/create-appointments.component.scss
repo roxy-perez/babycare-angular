@@ -24,10 +24,11 @@
       width: 80%;
       padding: 10px;
       border-radius: 10px;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: $fw-medium;
       padding-left: 10px;
       border: none;
+      background-color: #FFF;
     }
 
     textarea {
@@ -40,4 +41,16 @@
         width: 60%;
         font-family: $ff-subtitle;
     }
+}
+
+input[type="date"],
+input[type="time"]
+{
+   -webkit-appearance: none;
+}
+
+input[type="date"]:not(.has-value):before,
+input[type="time"]:not(.has-value):before{
+  color: #9E9E9E;
+  content: attr(placeholder);
 }
