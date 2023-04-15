@@ -17,13 +17,23 @@ export class CreateAppointmentsComponent {
   details: string;
   time: string;
   date: string;
+  placeholderDate: string;
+  placeholderTime: string;
 
   constructor(
     public router: Router,
     public appointmentService: AppointmentService,
     public userService: UserService,
     public toastService: ToastService
-  ) {}
+  ) {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const mobileKeywords = ['mobile', 'android', 'ios', 'iphone', 'ipad'];
+    const isMobile = mobileKeywords.some((keyword) =>
+      userAgent.includes(keyword)
+    );
+    this.placeholderDate = isMobile ? 'Fecha' : '';
+    this.placeholderTime = isMobile ? 'Hora' : '';
+  }
 
   create(form: NgForm) {
     const { date, time, title, details } = form.value;
