@@ -30,6 +30,7 @@ form {
     border: 1px solid rgba(242, 46, 82, .4);
     border-radius: 10px;
     overflow: hidden;
+
     .icon {
       width: fit-content;
       margin: 0;
@@ -47,14 +48,22 @@ form {
       color: #757575;
       border: none;
       padding-left: 10px;
+
       &::placeholder {
         color: #757575;
       }
+
       background-color: #FFF;
     }
 
     input[type=date] {
-      padding-right: 10px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      padding-right: 1em;
+      font-size: 1.3rem;
+      gap: 8px;
     }
 
     .select-css {
@@ -85,11 +94,11 @@ form {
 
 }
 
-input[type="date"]{
+input[type="date"] {
   -webkit-appearance: none;
 }
 
-input[type="date"]:not(.has-value):before{
+input[type="date"]:not(.has-value):before {
   color: #757575;
   content: attr(placeholder);
 }
